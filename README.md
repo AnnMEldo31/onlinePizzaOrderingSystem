@@ -1,0 +1,2 @@
+# onlinePizzaOrderingSystem
+Online Pizza Ordering System is a web-based application for online pizza order by the pizza company's customers and management of orders and coupons by admin (employees) The customer can manage details of their account and orders, and they can search details of pizza, coupons, and payment types. The admin has access to summary reports, and manage details of pizza, payment types and coupons.
