@@ -1,0 +1,158 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: whitesmoke;
+    /* #E5E030 */
+}
+
+/*tabs*/
+.tab {
+    overflow: hidden;
+    background-color: #459698;
+    width: 100%;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #CB4335 ;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #EB984E;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding-top: 5%;
+    padding-left: 5%;
+    display: flex;
+  }
+
+  /*toppings container*/
+  /* The container for toppings */
+.container_crust {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container_crust input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark_crust {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #F5BEAF;
+}
+
+/* On mouse-over, add a grey background color */
+.container_crust:hover input ~ .checkmark_crust {
+  background-color: #EF1313 ;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container_crust input:checked ~ .checkmark_crust {
+  background-color:#EF1313 ;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark_crust:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container_crust input:checked ~ .checkmark_crust:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container_crust .checkmark_crust:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*crust stuff card*/
+.card {
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 20%;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  z-index: -1;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+.price {
+  color: grey;
+  font-size: 16px;
+}
+
+.card button {
+  position: relative;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}

@@ -1,0 +1,531 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    font-family: 'Trebuchet MS', sans-serif;
+    /* #E5E030 */
+}
+
+/* slide show stuff*/
+.slide img{
+    opacity: 0.5;
+  }
+
+.slider{
+    width: 100%;
+    height: 550px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.slides{
+    width: 500%;
+    height: 550px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 20%;
+    transition: 1s;
+    position: relative;
+}
+
+.slide img{
+    width: 100%;
+    height: 550px;
+}
+
+.slide text{
+    position: absolute;
+}
+
+/* manual slide nav */
+
+.navigation-manual{
+    position: absolute;
+    width: 100%;
+    margin-top: 510px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid whitesmoke;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background: whitesmoke;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first{
+    margin-left: -60%;
+}
+
+/*  automatic slide nav */
+
+.navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 510px;
+}
+
+.navigation-auto div{
+    border: 2px solid whitesmoke;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background: whitesmoke;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background: whitesmoke;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background: whitesmoke;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background: whitesmoke;
+}
+
+/* text within slides */
+.slidetext{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: aliceblue;
+}
+
+/* responsive */
+/* for slideshow text, img and radio btn */
+
+/* If screen size is more than 600px wide, set the font-size of <div> to 80px */
+@media screen and (min-width: 600px) {
+    .slidetext{
+      font-size: 50px;
+    }
+  }
+  
+  /* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    .slidetext{
+      font-size: 30px;
+    }
+  }
+
+/* topnav*/
+nav{
+    height: 65px;
+    background: black;
+}
+
+/*login button*/
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+.pizzaName{
+    text-align: left;
+    color: whitesmoke;
+    margin-left: 75px;
+    margin-top: 25px;
+    position: absolute;
+}
+
+nav img{
+    width: 50px;
+    position: absolute;
+    top: 7px;
+    left: 2%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 25px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 65px;
+    margin: 0 15px;
+}
+
+nav ul li a{
+    position: relative;
+    color: whitesmoke;
+    font-size: 18px;
+    padding: 5px 0;
+    text-transform: uppercase;
+}
+
+nav ul li a:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0; 
+    height: 3px;
+    width: 100%;
+    background: whitesmoke;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .2s linear;
+}
+
+nav ul li a:hover:before{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+label #btn,
+label #cancel{
+    color: whitesmoke;
+    font-size: 30px;
+    float: right;
+    line-height: 65px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+/* responsive */
+@media (max-width: 1118px){
+    nav img{
+        left: 2%
+    }
+}
+
+@media (max-width: 944px){
+    nav img{
+        left: 2%;
+        top: 7px;
+        width: 50px;
+    }
+    nav ul li a{
+        font-size:17px;
+    }
+}
+
+@media (max-width: 860px){
+    label #btn{
+        display: block;
+        z-index: 1;
+    }
+    ul{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color:black;
+        top: 65px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+        z-index: 1;
+    } 
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+        z-index: 1;
+    }
+    nav ul li a{
+        font: size 20px;
+        z-index: 1;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+    #check:checked ~ label #btn{
+        display: none;
+    }
+    #check:checked ~ label #cancel{
+        display: block;
+    }
+}
+
+/*contacts and opening time*/
+.address{
+    flex: 1;
+    margin-left: 20%;
+}
+
+.address i{
+    position: absolute;
+}
+
+.address h4{
+    padding-top: 6px;
+    padding-left: 30px;
+}
+
+.commaddress{
+    color: whitesmoke;
+    padding-top: 10px;
+    height: 50px;
+    background: black;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; fraction */
+}
+
+/*responsive*/
+@media screen and (min-width: 800px) {
+    .address{
+        flex: 1;
+        margin-left: 20%;
+    }
+  }
+  
+  /* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 800px) {
+    .address{
+        flex: 1;
+        margin-left: 10%;
+        font-size: 14px;
+    }
+  }
+  
+
+  /*intro*/
+  .intro{
+    color: whitesmoke;
+    background:black;
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: start;
+    justify-content: start;
+    margin-bottom: -0.6%;
+  }
+
+  .intro:first-child {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: start;
+  }
+
+  .introimg{
+    float: left;
+  }
+  
+  .introimg img{
+    width: 100%;
+    object-fit:fill;
+  }
+
+  div .introimg p{
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /*responsive*/
+@media screen and (min-width: 800px) {
+    .introimg img{
+        object-fit:fill;
+    }
+    .introimg p{
+        font-size: 20px;
+    }
+  }
+  
+  /* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 900px) {
+    .introimg img{
+        object-fit:fill;
+    }
+    .introimg p{
+        font-size: 13.5px;
+    }
+  }
+
+  /* services */
+  .column {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    z-index: -1;
+  }
+
+  .service{
+    color:black;
+    background-color: #459698;
+    min-height:600px;
+    height: auto;
+    padding-left: 12.5%;
+    padding-top: 5%;
+    position: relative;
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+  }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .card img {
+    border-radius: 2px 2px 0 0;
+  }
+  
+  .service h5{
+    text-align: center;
+  }
+
+  .container {
+    background-color: whitesmoke;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    overflow: hidden;
+  }
+  
+
+  /*responsive*/
+  @media screen and (min-width: 900px) {
+    .service{
+        color:black;
+        background-color: #459698;
+        min-height:600px;
+        height: auto;
+        padding-left: 12.5%;
+        padding-top: 5%;
+        position: relative;
+      }
+    .service p{
+        font-size: 14px;
+        text-align: center;
+    }
+    .container {
+        background-color: whitesmoke;
+        width: 100%;
+        padding: 20px;
+        position: absolute;
+      }
+  }
+  
+  /* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 900px) {
+    .service{
+        color:black;
+        background-color: #459698;
+        min-height:400px;
+        height: auto;
+        padding-left: 12.5%;
+        padding-top: 5%;
+        position: relative;
+      }
+    .service p{
+        font-size: 14px;
+        text-align: center;
+    }
+  }
+  
+/*covid*/
+.fixed-btn{
+    position: fixed;
+    padding: 1%;
+    background: #22BB2C;
+    width: auto;
+    color: aliceblue;
+    bottom: 5%;
+    right: 3%;
+    z-index: 1;
+    border-radius: 2px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.fixed-btn button {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+/*overlay*/
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 2;
+    cursor: pointer;
+    color: whitesmoke;
+    padding: 10%;
+  }
+
+/*footer*/
+.social{
+    height: 55px;
+    background: black;
+    padding-left: 20px;
+    padding-top: 12px;
+    width: 100%;
+}
+
+  
+  
