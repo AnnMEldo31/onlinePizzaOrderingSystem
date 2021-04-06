@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-    --main-color: #DD2F6E;
+    --main-color: #008CBA;
     --color-dark: #1D2231;
     --text-gray: #8390A2;
 }
@@ -23,6 +23,7 @@
     top: 0;
     height: 100%;
     background: var(--main-color);
+    z-index: 100;
 }
 
 .sidebar-brand {
@@ -31,9 +32,24 @@
     color: #fff;
 }
 
-.sidebar-brand span {
+.sidebar-brand h2 {
+    text-align: left;
+    margin-left: 75px;
+    margin-top: 25px;
+    position: absolute;
+}
+
+.sidebar-brand img {
     display: inline-block;
     padding-right: 1rem;
+    width: 5rem;
+    position: absolute;
+    top: 21px;
+    left: 45px;
+}
+
+.sidebar-menu {
+    margin-top: 1rem;
 }
 
 .sidebar-menu li {
@@ -70,6 +86,21 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    position: fixed;
+    left: 345px;
+    width: calc(100% - 345px);
+    top: 0;
+    z-index: 100;
+}
+
+header h2 {
+    color: #222;
+}
+
+header label span {
+    font-size: 1.7rem;
+    padding-right: 1rem;
 }
 
 .search-wrapper {
@@ -104,3 +135,68 @@ header {
     margin-right: 1rem;
 }
 
+.user-wrapper small {
+    display: inline-block;
+    color: var(--text-gray);
+}
+
+main {
+    margin-top: 85px;
+    padding: 2rem 1.5rem;
+    background: #f1f5f9;
+    min-height: calc(100vh - 90px);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+}
+
+.card-single {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 2px;
+}
+
+.card-single div:last-child span {
+    font-size: 3rem;
+    color: var(--main-color);
+}
+
+.card-single div:first-child span {
+    color: var(--text-gray);
+}
+
+.card-single:last-child {
+    background: var(--main-color);
+}
+
+.card-single:last-child h1,
+.card-single:last-child div:first-child span,
+.card-single:last-child div:last-child span {
+    color: #fff;
+}
+
+.recent-grid {
+    margin-top: 3.5rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 67% auto;
+}
+
+.card {
+    background: #fff;
+    border-radius: 5px;
+}
+
+.card-body,
+.card-header {
+    padding: 1rem;
+}
+
+table {
+    border-collapse: collapse;
+}
