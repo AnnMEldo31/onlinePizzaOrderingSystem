@@ -1,0 +1,27 @@
+HomePage
+
+- covidSafety...learn more pop up nav thingy..(RightBottom)
+*** Offers...    1.SlideShow 
+*** top nav bar 
+*** login button
+*** slide....4 slides
+         1. abt restaurant....
+         2. offers
+         3. New ingredients....crust
+         4. safety is our priority
+*** contacts
+*** rest intro
+*** our services...talk abt delivery...make ur own pizza...fresh ingredients
+- fav toppings/crust/cheese/sauce......card...dbms connectivity thingy...................................later
+- footer....contacts....social media handles
+
+
+
+AllNavTabs:
+
+- Home.....cart icon in other pages
+- AboutUs
+        .seperate div for each services
+- MakeIt...along with cart
+- Offers
+- MyAccount(top right)...go to web page

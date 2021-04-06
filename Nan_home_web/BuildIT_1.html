@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Build IT</title>
+        <link rel="stylesheet" href="homepage.css">
+        <link rel="stylesheet" href="BuildIT_1.css">
+        <script src="homepage.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> <!--buttons-->
+        <script src="https://kit.fontawesome.com/931749e247.js" crossorigin="anonymous"></script> <!--buttons-->
+    </head>
+    <body>
+
+        <!--top nav start-->
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check">
+                <i class="fa fa-bars" id="btn"></i>
+                <i class="fa fa-times" id="cancel"></i>
+            </label>
+            <img src="logo.png">
+            <div class="pizzaName">
+                PIZZERIA
+            </div>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">BUILD IT</a></li>
+                <li><a href="#">OFFERS</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">MY ACCOUNT</a></li>
+            </ul>
+        </nav>
+        <!--top nav end-->
+
+
+        <!--covid sticky start-->
+        <div id="overlay" onclick="off()">
+            COVID STUFF HERE
+        </div>
+        <div class="fixed-btn">
+            <button onclick="on()">
+                <i class="fas fa-head-side-mask" style="font-size: 36px;"></i>
+            </button>
+        </div>
+        <!--covid sticky end-->
+        <div style="height: auto;">
+            <!--tab start-->
+            <div class="tab">
+                <button class="tablinks" onclick="ingred(event, 'crust')" id="defaultOpen">CRUST</button>
+                <button class="tablinks" onclick="ingred(event, 'sauce')">CHEESE & SAUCE</button>
+                <button class="tablinks" onclick="ingred(event, 'toppings')">TOPPINGS</button>
+            </div>
+            
+            <div id="crust" class="tabcontent">
+                <div class="card" style="float: left;">
+                    <img src="thincrust.jpg" style="width:100%;">
+                    <h5>Thin Crust</h5>
+                    <p class="price">₹99</p>
+                    <p><button>+</button></p>
+                </div>
+
+                <div class="card" style="float: left;">
+                    <img src="stuffed.jpg" style="width:100%;">
+                    <h5>Stuffed Crust</h5>
+                    <p class="price">₹99</p>
+                    <p><button>+</button></p>
+                </div>
+            
+                <div class="card" style="float: left;">
+                    <img src="vegan.jpg" style="width:100%;">
+                    <h5>Vegan Crust</h5>
+                    <p class="price">₹99</p>
+                    <p><button>+</button></p>
+                </div>
+
+                <div class="card" style="float: left;">
+                    <img src="thick.jpg" style="width:100%;">
+                    <h5>Thick Crust</h5>
+                    <p class="price">₹99</p>
+                    <p><button>+</button></p>
+                </div>
+
+                <div class="card" style="float: right;margin-bottom: 12%;">
+                    <img src="pan.jpg" style="width:100%;">
+                    <h5>Pan Crust</h5>
+                    <p class="price">₹99</p>
+                    <p><button>+</button></p>
+                </div>
+
+                <div class="card" style="float: left; ">
+                    <img src="neapoletan.jpg" style="width:100%;">
+                    <h5>Neapoletan Crust</h5>
+                    <p class="price">₹99</p>
+                    <p><button>+</button></p>
+                </div>
+
+                <div class="card" style="float: left; ">
+                    <img src="sicilian.jpg" style="width:100%;">
+                    <h5>Sicilian Crust</h5>
+                    <p class="price">₹99</p>
+                    <p><button>+</button></p>
+                </div>
+
+                <div class="card" style="float: right; ">
+                    <img src="focaccia.jpg" style="width:100%;">
+                    <h5>Focaccia Crust</h5>
+                    <p class="price">₹99</p>
+                    <p><button>+</button></p>
+                </div>
+            </div>
+            
+            <div id="sauce" class="tabcontent">
+                <h3>CHEESE & SAUCE</h3>
+                <p>Paris is the capital of France.</p> 
+            </div>
+            
+            <div id="toppings" class="tabcontent">
+                <h3>NON-VEG OPTIONS</h3>
+                <br>
+                <label class="container_crust">One
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark_crust"></span>
+                    </label>
+                    <label class="container_crust">Two
+                    <input type="checkbox">
+                    <span class="checkmark_crust"></span>
+                    </label>
+                    <label class="container_crust">Three
+                    <input type="checkbox">
+                    <span class="checkmark_crust"></span>
+                    </label>
+                    <label class="container_crust">Four
+                    <input type="checkbox">
+                    <span class="checkmark_crust"></span>
+                </label>
+            </div>
+            <!--tab end-->
+        </div> <!--to keep the content-->
+
+
+        <script>
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+        </script>
+
+        <!--footer start-->
+        <div class="social" style="position: fixed;bottom: 0px;">
+            <a href="#"><i class="fab fa-twitter" style="color: lightgrey; font-size: 30px;"></i>
+            </a> &nbsp;
+            <a href="#"><i class="fab fa-instagram" style="color: lightgrey; font-size: 30px;"></i>
+            </a> &nbsp;
+            <a href="#"><i class="fab fa-facebook" style="color: lightgrey; font-size: 30px;"></i>
+            </a> 
+        </div>
+        <!--footer end-->
+
+    </body>
+</html>
