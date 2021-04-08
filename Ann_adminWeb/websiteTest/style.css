@@ -3,6 +3,7 @@
 
 :root {
     --main-color: #008CBA;
+    --main-darker: #004e68;
     --color-dark: #1D2231;
     --text-gray: #8390A2;
 }
@@ -17,24 +18,25 @@
 }
 
 .sidebar {
-    width: 345px;
+    width: 300px;
     position: fixed;
     left: 0;
     top: 0;
     height: 100%;
     background: var(--main-color);
     z-index: 100;
+    transition: width 300ms;
 }
 
 .sidebar-brand {
     height: 90px;
-    padding: 1rem 0rem 1rem 2rem;
+    padding: 0.7rem 0rem 1rem 2rem;
     color: #fff;
 }
 
 .sidebar-brand h2 {
     text-align: left;
-    margin-left: 75px;
+    margin-left: 45px;
     margin-top: 25px;
     position: absolute;
 }
@@ -42,10 +44,10 @@
 .sidebar-brand img {
     display: inline-block;
     padding-right: 1rem;
-    width: 5rem;
+    width: 4.5rem;
     position: absolute;
     top: 21px;
-    left: 45px;
+    left: 15px;
 }
 
 .sidebar-menu {
@@ -78,24 +80,78 @@
     padding-right: 1rem;
 }
 
+#nav-toggle:checked + .sidebar {
+    width: 50px;
+}
+
+#nav-toggle:checked + .sidebar img {
+    display: inline-block;
+    padding-right: 1rem;
+    width: 3.5rem;
+    position: absolute;
+    top: 27px;
+    left: 5px;
+}
+
+#nav-toggle:checked + .sidebar .sidebar-brand,
+#nav-toggle:checked + .sidebar li {
+    padding-left: 0.3rem;
+    text-align: center;
+}
+
+#nav-toggle:checked + .sidebar li a {
+    padding-left: 0.5rem;
+}
+
+/* #nav-toggle:checked + .sidebar li a {
+    padding-right: 0rem;
+} */
+
+#nav-toggle:checked + .sidebar .sidebar-brand h2,
+#nav-toggle:checked + .sidebar li a span:last-child {
+    display: none;
+}
+
+#nav-toggle:checked ~ .main-content {
+    margin-left: 50px;
+}
+
+#nav-toggle:checked ~ .main-content header {
+    width: calc(100% - 50px);
+    left: 50px;
+}
+
 .main-content {
-    margin-left: 345px;
+    transition: margin-left 300ms;
+    margin-left: 300px;
 }
 
 header {
+    background: #fff;
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     position: fixed;
-    left: 345px;
-    width: calc(100% - 345px);
+    left: 300px;
+    width: calc(100% - 300px);
     top: 0;
     z-index: 100;
+    transition: left 300ms;
+}
+
+#nav-toggle {
+    display: none;
 }
 
 header h2 {
+    display: inline-flex;
+    align-items: center;
     color: #222;
+}
+
+header h2 label {
+    display: none;
 }
 
 header label span {
@@ -181,10 +237,10 @@ main {
 }
 
 .recent-grid {
-    margin-top: 3.5rem;
+    margin-top: 3rem;
     display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: 67% auto;
+    grid-gap: 1rem;
+    grid-template-columns: 65% auto;
 }
 
 .card {
@@ -192,11 +248,345 @@ main {
     border-radius: 5px;
 }
 
-.card-body,
 .card-header {
     padding: 1rem;
 }
 
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2.5px solid var(--main-darker);
+}
+
+.card-header button {
+    background: var(--main-color);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.8 rem;
+    padding: 0.25rem 0.5rem;
+    border: 2px solid var(--main-darker);
+}
+
 table {
     border-collapse: collapse;
+}
+
+thead tr {
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+thead td {
+    font-weight: 700;
+}
+
+td {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #222;
+}
+
+td .status {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+tr td:last-child {
+    display: flex;
+    align-items: center;
+}
+
+.status.purple {
+    background: rebeccapurple;
+}
+
+.status.blue {
+    background: skyblue;
+}
+
+.status.orange {
+    background: orangered;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.customer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.7rem;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.info img {
+    border-radius: 50%;
+    margin-right: 1rem;
+} 
+
+.info h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.info small {
+    font-weight: 600;
+    color: var(--text-gray);
+}
+
+.contact span {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-left: 0.1rem;
+    color: var(--main-color);
+}
+
+@media only screen and (max-width: 1200px) {
+    header h2 label {
+        display: none;
+    }
+
+    .sidebar {
+        width: 50px;
+    }
+    
+    .sidebar img {
+        display: inline-block;
+        padding-right: 1rem;
+        width: 3.5rem;
+        position: absolute;
+        top: 27px;
+        left: 5px;
+    }
+    
+    .sidebar .sidebar-brand,
+    .sidebar li {
+        padding-left: 0.3rem;
+        text-align: center;
+    }
+    
+    .sidebar li a {
+        padding-left: 0.5rem;
+    }
+    
+    .sidebar .sidebar-brand h2,
+    .sidebar li a span:last-child {
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 50px;
+    }
+    
+    .main-content header {
+        width: calc(100% - 50px);
+        left: 50px;
+    }
+
+    .sidebar:hover {
+        width: 300px;
+        z-index: 200;
+        box-shadow: 3px 0px 5px rgba(0,0,0,0.2);;
+    }
+    
+    .sidebar:hover img {
+        display: inline-block;
+        padding-right: 1rem;
+        width: 4.5rem;
+        position: absolute;
+        top: 21px;
+        left: 15px;
+    }
+    
+    .sidebar:hover .sidebar-brand,
+    .sidebar:hover li {
+        padding-left: 2rem;
+        text-align: left;
+    }
+    
+    .sidebar:hover li a {
+        padding-left: 1rem;
+    }
+
+    .sidebar:hover .sidebar-brand h2,
+    .sidebar:hover li a span:last-child {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .recent-grid {
+        grid-template-columns: 60% 40%;
+    }
+
+    .sidebar:hover {
+        width: 300px;
+        z-index: 200;
+        box-shadow: 3px 0px 5px rgba(0,0,0,0.2);;
+    }
+    
+    .sidebar:hover img {
+        display: inline-block;
+        padding-right: 1rem;
+        width: 4.5rem;
+        position: absolute;
+        top: 21px;
+        left: 15px;
+    }
+    
+    .sidebar:hover .sidebar-brand,
+    .sidebar:hover li {
+        padding-left: 2rem;
+        text-align: left;
+    }
+    
+    .sidebar:hover li a {
+        padding-left: 1rem;
+    }
+
+    .sidebar:hover .sidebar-brand h2,
+    .sidebar:hover li a span:last-child {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recent-grid {
+        grid-template-columns: 100%;
+    }
+
+    .search-wrapper {
+        display: none;
+    }
+
+    .sidebar {
+        left: -100%;
+    }
+
+    header {
+        width: 100% !important;
+        left: 0 !important;
+    }
+
+    header h2 {
+        font-size: 1.1rem;
+    }
+
+    header h2 label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--main-color);
+        padding-right: 0rem;
+        margin-right: 1rem;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        color: #fff;
+    }
+
+    header h2 span {
+        text-align: center;
+        padding-right: 0rem;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0rem;
+    }
+
+    #nav-toggle:checked + .sidebar {
+        left: 0;
+        z-index: 100;
+        width: 300px;
+        box-shadow: 3px 0px 5px rgba(0,0,0,0.2);;
+    }
+
+    #nav-toggle:checked + .sidebar img {
+        display: inline-block;
+        padding-right: 1rem;
+        width: 4.5rem;
+        position: absolute;
+        top: 21px;
+        left: 15px;
+    }
+    
+    #nav-toggle:checked + .sidebar .sidebar-brand,
+    #nav-toggle:checked + .sidebar li {
+        padding-left: 2rem;
+        text-align: left;
+    }
+    
+    #nav-toggle:checked + .sidebar li a {
+        padding-left: 1rem;
+    }
+
+    #nav-toggle:checked + .sidebar .sidebar-brand h2,
+    #nav-toggle:checked + .sidebar li a span:last-child {
+        display: inline;
+    }
+
+    #nav-toggle:checked ~ .main-content {
+        margin-left: 0rem;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .cards {
+        grid-template-columns: 100%;
+    }
+
+    #nav-toggle:checked + .sidebar {
+        left: 0;
+        z-index: 100;
+        width: 300px;
+        box-shadow: 3px 0px 5px rgba(0,0,0,0.2);;
+    }
+
+    #nav-toggle:checked + .sidebar img {
+        display: inline-block;
+        padding-right: 1rem;
+        width: 4.5rem;
+        position: absolute;
+        top: 21px;
+        left: 15px;
+    }
+    
+    #nav-toggle:checked + .sidebar .sidebar-brand,
+    #nav-toggle:checked + .sidebar li {
+        padding-left: 2rem;
+        text-align: left;
+    }
+    
+    #nav-toggle:checked + .sidebar li a {
+        padding-left: 1rem;
+    }
+
+    #nav-toggle:checked + .sidebar .sidebar-brand h2,
+    #nav-toggle:checked + .sidebar li a span:last-child {
+        display: inline;
+    }
+
+    #nav-toggle:checked ~ .main-content {
+        margin-left: 0rem;
+    }
 }
