@@ -39,39 +39,39 @@
         <div class="row">
             <div class="col-75">
                 <div class="bill_container">
-                    <form action="/action_page.php">
+                    <form action="bill_connect.php" method="post">
                     
                         <div class="row">
                             <div class="col-50">
                                 <h3>Billing Information</h3>
                                 <br>
-                                <label for="fname"><i class="fa fa-user">Full Name</i></label>
-                                <input type="text" id="fname" name="fullname" placeholder="John M. Done">
+                                <label for="fname"><i class="fa fa-user">&nbsp;Full Name</i></label>
+                                <input type="text" id="fname" name="b_fname" placeholder="John M. Done">
                                 
-                                <label for="email"><i class="fa fa-envelope">Email</i></label>
-                                <input type="text" id="email" name="email" placeholder="johnmd@example.com">
+                                <label for="email"><i class="fa fa-envelope">&nbsp;Email</i></label>
+                                <input type="text" id="email" name="b_mail" placeholder="johnmd@example.com">
                                 
-                                <label for="adr"><i class="fa fa-address-card-o">Address</i></label>
-                                <input type="text" id="adr" name="address" placeholder="452/17 Ichchanagar">
+                                <label for="adr"><i class="fa fa-address-card-o">&nbsp;Address</i></label>
+                                <input type="text" id="adr" name="b_adr" placeholder="452/17 Ichchanagar">
                                 
-                                <label for="Phone"><i class="fa fa-phone">Phone Number</i></label>
-                                <input type="text" id="phone" name="phone" placeholder="9938264837">
+                                <label for="Phone"><i class="fa fa-phone">&nbsp;Phone Number</i></label>
+                                <input type="text" id="phone" name="b_ph_no" placeholder="9938264837">
             
 
                                 <div class="row">
                                     <div class="col-25">
                                         <label for="pincode">Pincode</label>
-                                        <input type="text" id="pin" name="pin" placeholder="395007"> 
+                                        <input type="text" id="pin" name="b_pin" placeholder="395007"> 
                                     </div>
 
                                     <div class="col-25">
                                         <label for="street">Street No.</label>
-                                        <input type="text" id="street" name="street" placeholder="3568"> 
+                                        <input type="text" id="street" name="b_street" placeholder="3568"> 
                                     </div>
 
                                     <div class="col-25">
                                         <label for="house">House No.</label>
-                                        <input type="text" id="house" name="house" placeholder="88A"> 
+                                        <input type="text" id="house" name="b_house" placeholder="88A"> 
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                 <h3>Payment</h3>
                                 <br>
                                 <label for="cashonly">Only cash on delivery.</label>
-                                <input type="radio" id="cash" name="pay" value="cashpay" checked="checked">
+                                <input type="radio" id="cash" name="pay" value="cash" checked="checked">
                                 <i class="fa fa-money" aria-hidden="true" style="color: #2DA94F;"></i>
                                 <label for="cash">Cash</label>
                                 <input type="radio" id="gpay" name="pay" value="gpay">
@@ -91,8 +91,8 @@
                         </div>
 
                         <label>
-                            <input type="checkbox" checked="checked" name="safedel">Safe delivery</label>
-                            <input type="submit" value="Continue to checkout" class="btn">
+                            <input type="checkbox" checked="checked" name="safedel">&nbsp; Safe delivery</label>
+                            <input type="submit" value="CHECKOUT" class="btn" name="save">
                     </form>
                 </div>
             </div>
