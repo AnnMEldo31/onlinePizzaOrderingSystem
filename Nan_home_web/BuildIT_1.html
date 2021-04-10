@@ -6,7 +6,7 @@
         <title>Build IT</title>
         <link rel="stylesheet" href="homepage.css">
         <link rel="stylesheet" href="BuildIT_1.css">
-        <script src="homepage.js"></script>
+        <script src="buildIt.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> <!--buttons-->
         <script src="https://kit.fontawesome.com/931749e247.js" crossorigin="anonymous"></script> <!--buttons-->
     </head>
@@ -55,103 +55,207 @@
             <div id="crust" class="tabcontent">
                 <div class="card" style="float: left;">
                     <img src="thincrust.jpg" style="width:100%;">
-                    <h5>Thin Crust</h5>
-                    <p class="price">₹99</p>
-                    <p><button autofocus>+</button></p>
+                    <div class="cardtxt">
+                        <h5>Thin Crust</h5>
+                        <p class="price">₹99</p>
+                    </div>
+                    <p>
+                        <div class ="radio">
+                            <input class="radio__input" type="radio" name="pizza" id="thin" value="add">
+                            <label class="radio__label" for="thin">ADD</label>
+                        </div>
+                    </p>
                 </div>
 
                 <div class="card" style="float: left;">
                     <img src="stuffed.jpg" style="width:100%;">
-                    <h5>Stuffed Crust</h5>
-                    <p class="price">₹99</p>
-                    <p><button>+</button></p>
+                    <div class="cardtxt">
+                        <h5>Stuffed Crust</h5>
+                        <p class="price">₹99</p>
+                    </div>
+                        <p>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="pizza" id="stuffed" value="add">
+                                <label class="radio__label" for="stuffed">ADD</label>
+                            </div>
+                        </p>
                 </div>
             
                 <div class="card" style="float: left;">
                     <img src="vegan.jpg" style="width:100%;">
-                    <h5>Vegan Crust</h5>
-                    <p class="price">₹99</p>
-                    <p><button>+</button></p>
+                    <div class="cardtxt">
+                        <h5>Vegan Crust</h5>
+                        <p class="price">₹99</p>
+                    </div>
+                    <p>
+                        <div class ="radio">
+                            <input class="radio__input" type="radio" name="pizza" id="vegan" value="add">
+                            <label class="radio__label" for="vegan">ADD</label>
+                        </div>
+                    </p>
                 </div>
 
                 <div class="card" style="float: left;">
                     <img src="thick.jpg" style="width:100%;">
-                    <h5>Thick Crust</h5>
-                    <p class="price">₹99</p>
-                    <p><button>+</button></p>
+                    <div class="cardtxt">
+                        <h5>Thick Crust</h5>
+                        <p class="price">₹99</p>
+                    </div>
+                    <p>
+                        <div class ="radio">
+                            <input class="radio__input" type="radio" name="pizza" id="thick" value="add">
+                            <label class="radio__label" for="thick">ADD</label>
+                        </div>
+                    </p>
                 </div>
 
                 <div class="card" style="float: right;margin-bottom: 12%;">
                     <img src="pan.jpg" style="width:100%;">
-                    <h5>Pan Crust</h5>
-                    <p class="price">₹99</p>
-                    <p><button>+</button></p>
+                    <div class="cardtxt">
+                        <h5>Pan Crust</h5>
+                        <p class="price">₹99</p>
+                    </div>
+                    <p>
+                        <div class ="radio">
+                            <input class="radio__input" type="radio" name="pizza" id="pan" value="add">
+                            <label class="radio__label" for="pan">ADD</label>
+                        </div>
+                    </p>
                 </div>
 
                 <div class="card" style="float: left; ">
                     <img src="neapoletan.jpg" style="width:100%;">
-                    <h5>Neapoletan Crust</h5>
-                    <p class="price">₹99</p>
-                    <p><button>+</button></p>
+                    <div class="cardtxt">
+                        <h5>Neapoletan</h5>
+                        <p class="price">₹99</p>
+                    </div>
+                    <p>
+                        <div class ="radio">
+                            <input class="radio__input" type="radio" name="pizza" id="neo" value="add">
+                            <label class="radio__label" for="neo">ADD</label>
+                        </div>
+                    </p>
                 </div>
 
                 <div class="card" style="float: left; ">
                     <img src="sicilian.jpg" style="width:100%;">
-                    <h5>Sicilian Crust</h5>
-                    <p class="price">₹99</p>
-                    <p><button>+</button></p>
+                    <div class="cardtxt">
+                        <h5>Sicilian Crust</h5>
+                        <p class="price">₹99</p>
+                    </div>
+                    <p>
+                        <div class ="radio">
+                            <input class="radio__input" type="radio" name="pizza" id="scicilian" value="add">
+                            <label class="radio__label" for="scicilian">ADD</label>
+                        </div>
+                    </p>
                 </div>
 
                 <div class="card" style="float: right; ">
                     <img src="focaccia.jpg" style="width:100%;">
-                    <h5>Focaccia Crust</h5>
-                    <p class="price">₹99</p>
-                    <p><button>+</button></p>
+                    <div class="cardtxt">
+                        <h5>Focaccia Crust</h5>
+                        <p class="price">₹99</p>
+                    </div>
+                    <p>
+                        <div class ="radio">
+                            <input class="radio__input" type="radio" name="pizza" id="focaccia" value="add">
+                            <label class="radio__label" for="focaccia">ADD</label>
+                        </div>
+                    </p>
                 </div>
             </div>
 
 
             <!--sauces-->
             <div id="sauce" class="tabcontent">
-                <div class="card" style="float: left;">
-                    <img src="thincrust.jpg" style="width:100%;">
-                    <h5>Thin Crust</h5>
-                    <p class="price">₹99</p>
-                    <p>
-                        <div class ="radio">
-                            <input class="radio__input" type="radio" name="saucerad" id="radio1" value="less">
-                            <label class="radio__label" for="radio1">LESS</label>
+                    <div class="card" style="float: left;">
+                        <img src="sauce.jpg" style="width:100%;">
+                        <div class="cardtxt">
+                            <h5>Neapolitan sauce</h5>
+                            <p class="price">₹99</p>
                         </div>
-                        <div class ="radio">
-                            <input class="radio__input" type="radio" name="saucerad" id="radio2" value="+">
-                            <label class="radio__label" for="radio2">+</label>
-                        </div>
-                        <div class ="radio">
-                            <input class="radio__input" type="radio" name="saucerad" id="radio3" value="extra">
-                            <label class="radio__label" for="radio3">EXTRA</label>
-                        </div>
-                    </p>
-                </div>
+                        <p>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="saucerad" id="radio1" value="less">
+                                <label class="radio__label" for="radio1">LESS</label>
+                            </div>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="saucerad" id="radio2" value="+">
+                                <label class="radio__label" for="radio2">+</label>
+                            </div>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="saucerad" id="radio3" value="extra">
+                                <label class="radio__label" for="radio3">EXTRA</label>
+                            </div>
+                        </p>
+                    </div>
 
-                <div class="card" style="float: left;">
-                    <img src="thincrust.jpg" style="width:100%;">
-                    <h5>Thin Crust</h5>
-                    <p class="price">₹99</p>
-                    <p>
-                        <div class ="radio">
-                            <input class="radio__input" type="radio" name="saucerad" id="radio4" value="less">
-                            <label class="radio__label" for="radio4">LESS</label>
+                    <div class="card" style="float: left;">
+                        <img src="whites.jpg" style="width:100%;">
+                        <div class="cardtxt">
+                            <h5>Betchamel Sauce</h5>
+                            <p class="price">₹99</p>
                         </div>
-                        <div class ="radio">
-                            <input class="radio__input" type="radio" name="saucerad" id="radio5" value="+">
-                            <label class="radio__label" for="radio5">+</label>
+                        <p>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="saucerad" id="radio4" value="less">
+                                <label class="radio__label" for="radio4">LESS</label>
+                            </div>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="saucerad" id="radio5" value="+">
+                                <label class="radio__label" for="radio5">+</label>
+                            </div>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="saucerad" id="radio6" value="extra">
+                                <label class="radio__label" for="radio6">EXTRA</label>
+                            </div>
+                        </p>
+                    </div>
+
+                    <div class="card" style="float: left;">
+                        <img src="cheese.jpg" style="width:100%;">
+                        <div class="cardtxt">
+                            <h5>Motzerella Cheese</h5>
+                            <p class="price">₹99</p>
                         </div>
-                        <div class ="radio">
-                            <input class="radio__input" type="radio" name="saucerad" id="radio6" value="extra">
-                            <label class="radio__label" for="radio6">EXTRA</label>
+                        <p>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="cheeserad" id="radio7" value="less">
+                                <label class="radio__label" for="radio7">LESS</label>
+                            </div>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="cheeserad" id="radio8" value="+">
+                                <label class="radio__label" for="radio8">+</label>
+                            </div>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="cheeserad" id="radio9" value="extra">
+                                <label class="radio__label" for="radio9">EXTRA</label>
+                            </div>
+                        </p>
+                    </div>
+
+                    <div class="card" style="float: left;">
+                        <img src="cheddar.jpg" style="width:100%;">
+                        <div class="cardtxt">
+                            <h5>Yellow Cheddar Cheese</h5>
+                            <p class="price">₹99</p>
                         </div>
-                    </p>
-                </div>
+                        <p>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="cheeserad" id="radio10" value="less">
+                                <label class="radio__label" for="radio10">LESS</label>
+                            </div>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="cheeserad" id="radio11" value="+">
+                                <label class="radio__label" for="radio11">+</label>
+                            </div>
+                            <div class ="radio">
+                                <input class="radio__input" type="radio" name="cheeserad" id="radio12" value="extra">
+                                <label class="radio__label" for="radio12">EXTRA</label>
+                            </div>
+                        </p>
+                    </div>
             </div>
             
             <!--toppings div-->
@@ -161,19 +265,41 @@
                 <label class="container_crust">One
                     <input type="checkbox" checked="checked">
                     <span class="checkmark_crust"></span>
-                    </label>
-                    <label class="container_crust">Two
-                    <input type="checkbox">
-                    <span class="checkmark_crust"></span>
-                    </label>
-                    <label class="container_crust">Three
-                    <input type="checkbox">
-                    <span class="checkmark_crust"></span>
-                    </label>
-                    <label class="container_crust">Four
+                </label>
+                <label class="container_crust">Two
                     <input type="checkbox">
                     <span class="checkmark_crust"></span>
                 </label>
+                <label class="container_crust">Three
+                    <input type="checkbox">
+                    <span class="checkmark_crust"></span>
+                </label>
+                <label class="container_crust">Four
+                    <input type="checkbox">
+                    <span class="checkmark_crust"></span>
+                </label>
+
+                <div style="float: right;">
+                    <h3>VEG OPTIONS</h3>
+                    <br>
+                    <label class="container_crust">One
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark_crust"></span>
+                    </label>
+                    <label class="container_crust">Two
+                        <input type="checkbox">
+                        <span class="checkmark_crust"></span>
+                    </label>
+                    <label class="container_crust">Three
+                        <input type="checkbox">
+                        <span class="checkmark_crust"></span>
+                    </label>
+                    <label class="container_crust">Four
+                        <input type="checkbox">
+                        <span class="checkmark_crust"></span>
+                    </label>
+                </div>
+
             </div>
             <!--tab end-->
         </div> <!--to keep the content-->
