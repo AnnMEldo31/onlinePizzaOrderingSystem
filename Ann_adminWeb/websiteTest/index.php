@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Attempt3</title>
+    <title>Dashboard | Pizzeria Admins</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
             <img src="img/logo_BW.png" alt="pizzeria logo in black and white">
-            <h2>PIZZERIA Admin</h2>
+            <h2>PIZZERIA Admins</h2>
         </div>
 
         <div class="sidebar-menu">
@@ -25,38 +26,26 @@
                 </li>
                 <li>
                     <a href="">
-                        <span class="las la-users"></span>
-                        <span>Customers</span>
+                        <span class="las la-server"></span>
+                        <span>Database</span>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <span class="las la-clipboard-list"></span>
-                        <span>Projects</span>
+                        <span class="las la-chart-area"></span>
+                        <span>Reports</span>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <span class="las la-shopping-bag"></span>
-                        <span>Orders</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="las la-receipt"></span>
-                        <span>Inventory</span>
+                        <span class="las la-edit"></span>
+                        <span>Edit Inventory</span>
                     </a>
                 </li>
                 <li>
                     <a href="">
                         <span class="las la-user-circle"></span>
                         <span>Accounts</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="las la-clipboard-list"></span>
-                        <span>Tasks</span>
                     </a>
                 </li>
             </ul>
@@ -79,10 +68,9 @@
             </div>
 
             <div class="user-wrapper">
-                <img src="img/2.jpg" width="40px" height="40px" alt="woman's face, short hair, plain background">
                 <div>
+                    <small>Current User</small>
                     <h4>Jane Doe</h4>
-                    <small>Super Admin</small>
                 </div>
             </div>
         </header>
