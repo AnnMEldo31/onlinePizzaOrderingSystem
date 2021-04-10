@@ -47,7 +47,7 @@ body{
   
   /* Style the tab content */
   .tabcontent {
-    display: none;
+    display: flex;
     padding-top: 5%;
     padding-left: 5%;
     display: flex;
@@ -132,7 +132,7 @@ body{
   font-family: arial;
   z-index: -1;
   margin-right: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 7%;
 }
 
 .price {
@@ -156,3 +156,40 @@ body{
 .card button:hover {
   opacity: 0.7;
 }
+
+.card button:not(.btn):focus {
+  background-color: grey;
+}  
+
+/* radio buttons */
+.radio{
+  display: inline-flex;
+  overflow: hidden;
+  border: none;
+  outline: 0;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.radio__input{
+  display: none;
+}
+
+.radio__label{
+  cursor: pointer;
+  width: 100%;
+  padding: 12px;
+}
+
+.radio__label:hover{
+  background-color: grey;
+}
+
+.radio__input:checked + .radio__label{
+background-color: grey;
+}
+
