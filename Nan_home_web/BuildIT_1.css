@@ -6,6 +6,15 @@
     text-decoration: none;
 }
 
+/*for vertical line in sauce and cheese*/
+.vline {
+  border-left: 3px solid rgb(211, 202, 202);
+  height: 80%;
+  margin-left: 45%;
+  position: absolute;
+  z-index: -1;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -50,9 +59,9 @@ body{
     display: flex;
     padding-top: 5%;
     padding-left: 5%;
-    display: flex;
     position: absolute;
     z-index: -1;
+    width: 100%;
   }
 
   /*toppings container*/
@@ -124,6 +133,54 @@ body{
   transform: rotate(45deg);
 }
 
+/*for veg checkboxes*/
+/* Create a custom checkbox */
+.checkmark_veg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #adf5ad;
+}
+
+/* On mouse-over, add a grey background color */
+.container_crust:hover input ~ .checkmark_veg {
+  background-color: #15d815 ;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container_crust input:checked ~ .checkmark_veg {
+  background-color:#15d815 ;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark_veg:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container_crust input:checked ~ .checkmark_veg:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container_crust .checkmark_veg:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
 /*crust stuff card*/
 .card {
   position: relative;
@@ -142,19 +199,6 @@ body{
   font-size: 16px;
 }
 
-.card button {
-  position: relative;
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
 .cardtxt{
   position: relative;
   border: none;
@@ -168,15 +212,8 @@ body{
   font-size: 18px;
 }
 
-.card button:hover {
-  opacity: 0.7;
-}
 
-.card button:not(.btn):focus {
-  background-color: grey;
-}  
-
-/* radio buttons */
+/* radio buttons for crust and cheese and sauce*/
 .radio{
   display: inline-flex;
   overflow: hidden;
@@ -207,5 +244,16 @@ body{
 .radio__input:checked + .radio__label{
 background-color: rgb(82, 78, 78);
 }
+
+  /* pizza background*/
+  .back{
+    margin-top: -5%;
+    margin-left: -5%;
+    /* background-image: url("backsaucecheese.jpg"); */
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    align-content: center;
+  }
 
 
