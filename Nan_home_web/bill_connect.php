@@ -2,7 +2,7 @@
    $severname="localhost";
    $username="root";
    $password="";
-   $database_name="nanpizza";
+   $database_name="dbms_project";
 
    $conn = mysqli_connect($severname,$username,$password,$database_name);
    //check connection
@@ -12,19 +12,17 @@
 
     if(isset($_POST['save'])){
 
-        $b_fname = $_POST['b_fname'];
-        $b_mail = $_POST['b_mail'];
-        $b_adr = $_POST['b_adr'];
-        $b_ph_no = $_POST['b_ph_no'];
-        $b_pin = $_POST['b_pin'];
-        $b_street = $_POST['b_street'];
-        $b_house = $_POST['b_house'];
-        $pay = $_POST['pay'];
+        $O_House_No = $_POST['b_house'];
+        $O_Street_No = $_POST['b_street'];
+        $O_Pin_Code = $_POST['b_pin'];
+        $O_Mail = $_POST['b_mail'];
+        $Contact_No = $_POST['b_ph_no'];
+        $Pay = $_POST['pay'];
 
-        $sql_query="INSERT INTO billing(b_fname, b_mail, b_adr, b_ph_no, b_pin, b_street, b_house, pay) VALUES('$b_fname', '$b_mail', '$b_adr', '$b_ph_no', '$b_pin', '$b_street', '$b_house', '$pay')";
+        $sql_query="INSERT INTO orders (Cust_ID, O_House_No, O_Street_No, O_Pin_Code, O_Mail, Contact_No, Pay) VALUES('1', '$O_House_No', '$O_Street_No', '$O_Pin_Code', '$O_Mail', '$Contact_No', '$Pay')";
 
         if(mysqli_query($conn, $sql_query)){
-            echo "checkout successful!";
+        
         }
         else{
             echo "Error: " . $sql . "" . mysqli_error($conn);
