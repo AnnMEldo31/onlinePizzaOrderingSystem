@@ -1,0 +1,10 @@
+"Pizza_ID","Cust_ID","Order_ID","B_Price","B_Perks","Offer_ID"
+"Cust_ID","C_Name","C_Ph_No","C_Mail","C_Username","C_Password","C_Perks"
+"1","Bill","9427274851","bill@gmail.com","billuser","Bill$123",NULL
+"3","Charlie","8464947684","charlie31@gmail.com","charlie31","Charlie@135",NULL
+"Add_ID","Cust_ID","C_Pin_Code","C_Street_No","C_House_No"
+"1","1","64537","4278","88A"
+"2","1","650007","5859","97C"
+"Ingr_ID","In_Name","In_Type","In_Qty","In_Price"
+"Pizza_ID","Ingr_ID","Amt"
+"Order_id","Cust_ID","O_Date_Time","Total_Price","Total_Perks","O_House_No","O_Street_No","O_Pin_Code","O_Mail","Contact_No","Pay","Total_Orders"
