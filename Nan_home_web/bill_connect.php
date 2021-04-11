@@ -22,12 +22,11 @@
         $sql_query="INSERT INTO orders (Cust_ID, O_House_No, O_Street_No, O_Pin_Code, O_Mail, Contact_No, Pay) VALUES('1', '$O_House_No', '$O_Street_No', '$O_Pin_Code', '$O_Mail', '$Contact_No', '$Pay')";
 
         if(mysqli_query($conn, $sql_query)){
-        
+            echo "successful checkout";
         }
         else{
-            echo "Error: " . $sql . "" . mysqli_error($conn);
+            echo "Error: " . $sql_query . "" . mysqli_error($conn);
         }
-
         mysqli_close($conn);
     }  
 ?>
