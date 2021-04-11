@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>multiple step form</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<form id="form1">
+			<h3>CREATE ACCOUNT</h3>
+
+			<input type="text" placeholder="Name" required>
+			<input type="mail" placeholder="Email" required>
+			<input type="password" placeholder="Password" required>
+			<input type="password" placeholder="Confirm Password" required>
+			<input type="text" placeholder="Mobile number" required>
+				<div class="btn-box">
+					<button type="button">NEXT</button>
+				</div>
+		</form>
+		<form id="form2" >
+			<h3>DETAILS</h3>
+			<input type="text" placeholder="CUSTOMER_ID" required>
+			<input type="password" placeholder="PERKS" required>
+			<div class="btn-box">
+				<button type="button">BACK</button>
+				<button type="button">SIGN UP</button>
+
+			</div>
+		</form>
+		<dvi class="step-row">
+			<div id="progress"></div>
+			<div class="step-col"><small>Step 1</small></div>
+			<div class="step-col"><small>Step 2</small></div>
+		</dvi>
+	</div>
+	
+</body>
+</html>
