@@ -29,7 +29,8 @@
         }
 
         $orderIDobj = mysqli_query($conn,"SELECT max(Order_ID) FROM Orders where Cust_ID=1 and Total_Price=0.00;");//getting order_ID
-        echo serialize($orderIDobj);
+        $row=mysqli_fetch_assoc($orderIDobj);
+        echo $row["max(OrderID)"];
 
         //calculating b_Price.....price of each pizza
             //get sum of all selected ingredient ka price from ingredients table
