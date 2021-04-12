@@ -28,15 +28,15 @@
             echo "Error: " . $sql_query1 . "" . mysqli_error($conn);
         }
 
-        $orderIDvar = mysqli_query($conn,"SELECT Order_ID FROM Orders where Cust_ID=1");//getting order_ID
-        $row = $orderIDvar->fetch_assoc();
-        
+        $orderIDobj = mysqli_query($conn,"SELECT max(Order_ID) FROM Orders where Cust_ID=1 and Total_Price=0.00;");//getting order_ID
+        echo serialize($orderIDobj);
+
         //calculating b_Price.....price of each pizza
             //get sum of all selected ingredient ka price from ingredients table
             $pizza_B_price= mysqli_query($conn,"SELECT SUM(In_Price) from ingredients where In_Name IN('$topping')");
-            $row = $pizza_B_price->fetch_assoc();
+            
 
-        $sql_query2 = "INSERT INTO Bill_Items (Cust_ID, Order_ID, B_Price) VALUES('1', $orderIDvar, $pizza_B_price)";
+        $sql_query2 = "INSERT INTO Bill_Items (Cust_ID, Order_ID, B_Price) VALUES('1', $orderIDvar, (string)$pizza_B_price)";
         if(mysqli_query($conn, $sql_query2)){
             echo "successful checkout4";
         }
