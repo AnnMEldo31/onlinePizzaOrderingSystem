@@ -225,7 +225,7 @@ main {
 .recent-grid {
     margin-top: 3rem;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 0rem;
     grid-template-columns: 65% auto;
 }
 
@@ -251,7 +251,7 @@ main {
     background: var(--main-color);
     border-radius: 5px;
     font-size: 0.8 rem;
-    padding: 0.25rem 0.5rem;
+    padding-top: 0.25rem 0.5rem;
     border: 2px solid var(--main-darker);
     transition: 0.3s;
 }
@@ -286,38 +286,45 @@ tr td:last-child, th:last-child {
     overflow-x: auto;
 }
 
-.todaycustomer {
+.recentcustomers {
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.recentcustomers .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0.7rem;
+}
+
+.customer {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .info {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 25px 1fr 1.5fr;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.info img {
-    border-radius: 50%;
-    margin-right: 1rem;
-} 
-
 .info h4 {
-    font-size: 0.8rem;
-    font-weight: 700;
     color: #222;
 }
 
-.info small {
-    font-weight: 600;
+.info > small {
+    font-weight: 500;
+    text-align: left;
     color: var(--text-gray);
+}
+
+.contact {
+    display: inline;
 }
 
 .contact span {
     font-size: 1.2rem;
-    display: inline-block;
-    margin-left: 0.1rem;
     color: var(--main-color);
 }
 

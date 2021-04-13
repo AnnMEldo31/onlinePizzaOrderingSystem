@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database_name="pizzeriadb";
+$database_name="dbms_project";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database_name);
@@ -71,23 +71,23 @@ if (!$conn) {
             <h2>
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
-                </label>
+                </label> <!-- toggle bar icon -->
                 
                 Dashboard
-            </h2>
+            </h2> <!-- sidebar view toggle button, page title -->
 
             <div class="search-wrapper">
                 <span class="las la-search"></span>
                 <input type="search" placeholder="Search Here" />
-            </div>
+            </div> <!-- .search-wrapper -->
 
             <div class="user-wrapper">
                 <div>
                     <small>Current User</small>
                     <h4>Jane Doe</h4>
-                </div>
-            </div>
-        </header>
+                </div> <!-- current account -->
+            </div> <!-- .user-wrapper -->
+        </header> <!-- page title, sidebar view toggle button, search, current account -->
 
         <main>
             <div class="cards">
@@ -100,29 +100,31 @@ if (!$conn) {
                             
                             echo mysqli_num_rows($result);
                             ?>
-                        </h1>
+                        </h1> <!-- data customers -->
                         <span>Customers</span>
-                    </div>
+                    </div> <!-- text customers -->
                     <div>
                         <span class="las la-users"></span>
-                    </div>
-                </div>
+                    </div> <!-- icon customers -->
+                </div> <!-- .card-single customers -->
+
                 <div class="card-single">
                     <div>
                         <h1>
                             <?php
-                            $query="SELECT * from cust_acct";
+                            $query="SELECT * from orders";
                             $result=mysqli_query($conn, $query);
                             
                             echo mysqli_num_rows($result);
                             ?>
-                        </h1>
+                        </h1> <!-- data orders -->
                         <span>Orders</span>
-                    </div>
+                    </div> <!-- text orders -->
                     <div>
                         <span class="las la-clipboard-list"></span>
-                    </div>
-                </div>
+                    </div> <!-- icon orders -->
+                </div> <!-- .card-single orders -->
+
                 <div class="card-single">
                     <div>
                         <h1>
@@ -132,181 +134,116 @@ if (!$conn) {
                             
                             echo mysqli_num_rows($result);
                             ?>
-                        </h1>
+                        </h1> <!-- data offers -->
                         <span>Today's Offers</span>
-                    </div>
+                    </div> <!-- text offers -->
                     <div>
                         <span class="lar la-star"></span>
-                    </div>
-                </div>
+                    </div> <!-- icon offers -->
+                </div> <!-- .card-single offers -->
+
                 <div class="card-single">
                     <div>
                         <h1>
                             <?php
-                            $query="SELECT * from cust_acct";
+                            $query="SELECT SUM(Total_Price) as tot from orders";
                             $result=mysqli_query($conn, $query);
+                            $income=mysqli_fetch_assoc($result);
                             
-                            echo "₹".mysqli_num_rows($result);
+                            echo "₹".$income["tot"];
                             ?>
-                        </h1>
+                        </h1> <!-- income data -->
                         <span>Today's Income</span>
-                    </div>
+                    </div> <!-- text income -->
                     <div>
                         <span class="las la-money-bill"></span>
-                    </div>
-                </div>
-            </div>
+                    </div> <!-- icon income -->
+                </div> <!-- .card-single income -->
+            </div> <!-- cards quickoverview -->
 
             <div class="recent-grid">
                 <div class="recentorders">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Today's Orders</h3>
+                            <h3>Recent Orders</h3>
                             <a href="datapage.php"><button>See all <span class="las la-arrow-right"></span></button></a>
-                        </div>
+                        </div> <!-- .recentorders .card-header -->
 
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table style="width:100%">
                                     <thead id="table header">
                                         <tr>
-                                            <th id="id"><strong>Order ID</strong></th>
-                                            <th id="date"><strong>Date</strong></th>
-                                            <th id="num"><strong>No of Items</strong></th>
+                                            <th id="o_id"><strong>Order ID</strong></th>
+                                            <th id="c_id"><strong>Customer</strong></th>
+                                            <th id="date"><strong>Date Time</strong></th>
                                             <th id="price"><strong>Total Price</strong></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php 
-                                        $sql_orders = "select Cust_ID, C_Name, C_Username, C_Ph_No from cust_acct";
-                                        $result=mysqli_query($conn, $sql_orders);
-                                        $num = mysqli_num_rows($result);
-                                        if ($num > 0) {
-                                            $counter = 0;
-                                            while($row=mysqli_fetch_assoc($result) and $counter!=5) {
+                                        $sql_orders="select Order_ID, Cust_ID, O_Date_Time, Total_Price from orders order by o_date_time desc";
+                                        $result_orders=mysqli_query($conn, $sql_orders);
+                                        $num_orders = mysqli_num_rows($result_orders);
+                                        if ($num_orders > 0) {
+                                            $count_order = 0;
+                                            while($row_5order=mysqli_fetch_assoc($result_orders) and $count_order!=5) {
                                                 //use row to fetch the element of each column
-                                                echo("<tr><td>".$row["Cust_ID"]."</td><td>".$row["C_Name"]."</td><td>".$row["C_Username"]."</td><td>".$row["C_Ph_No"]."</td></tr>");
-                                                $counter+=1;
+                                                echo "<tr>
+                                                    <td>".$row_5order["Order_ID"]."</td>
+                                                    <td>".$row_5order["Cust_ID"]."</td>
+                                                    <td>".$row_5order["O_Date_Time"]."</td>
+                                                    <td>".$row_5order["Total_Price"]."</td>
+                                                </tr>";
+                                                $count_order+=1;
                                             }
                                         } else {
                                             echo("0 results");
                                         }
                                         ?>
                                     </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                </table> <!-- table for last 5 orders -->
+                            </div> <!-- .table-responsive -->
+                        </div> <!-- .recentorders .card-body -->
+                    </div> <!-- .recentorders.card -->
+                </div> <!-- .recentorders -->
 
                 <div class="recentcustomers">
                     <div class="card">
                         <div class="card-header">
                             <h3>New Customers</h3>
                             <a href="datapage.php"><button>See all <span class="las la-arrow-right"></span></button></a>
-                        </div>
+                        </div> <!-- .recentcustomers .card-header -->
 
                         <div class="card-body">
                             <?php
-                            $sql_cust = "select C_Name, C_Username, C_Ph_No from cust_acct";
-                            $result=mysqli_query($conn, $sql_cust);
-                            $num = mysqli_num_rows($result);
-                            if ($num > 0) {
-                                $counter = 0;
-                                while($row=mysqli_fetch_assoc($result) and $counter!=5) {
-                                    //use row to fetch the element of each column
-                                    
-                            echo "<div class='customer'>
+                                $sql_cust = mysqli_query($conn, "select Cust_ID, C_Name, C_Ph_No from cust_acct order by cust_id desc");
+                                $num_cust = mysqli_num_rows($sql_cust);
+                                if ($num_cust > 0) {
+                                    $count_cust = 0;
+                                    while(($row_cust = mysqli_fetch_assoc($sql_cust)) and $count_cust!=5) {
+                                        echo 
+                            "<div class='customer'>
                                 <div class='info'>
-                                    <div>
-                                        <h4>"."Lewis H. Cunningham"."</h4>                                      <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class='contact'>
-                                    <span class='las la-user-circle'></span>
-                                    <span class='las la-comment'></span>
-                                    <span class='las la-phone'></span>
-                                </div>
-                            </div>"
-                            ?>
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="customer image">
-                                    <div>
-                                        <h4>Lewis H. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="customer image">
-                                    <div>
-                                        <h4>Lewis H. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="customer image">
-                                    <div>
-                                        <h4>Lewis H. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="customer image">
-                                    <div>
-                                        <h4>Lewis H. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="customer image">
-                                    <div>
-                                        <h4>Lewis H. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </main>
-    </div>
+                                    <small>".$row_cust["Cust_ID"]."</small>
+                                    <h4>".$row_cust["C_Name"]."</h4>
+                                    <div class='contact'>
+                                        <span class='las la-phone'></span>
+                                        <span class='phonenum'><small>".$row_cust["C_Ph_No"]."</small></span>
+                                    </div> <!-- .customer.info.contact -->
+                                </div> <!-- .customer.info -->
+                            </div> <!-- .customer -->";
+                                        $count_cust+=1;
+                                    } //endwhile loop for creating the divs with the customer data
+                                } //endif condition for finding if customers actually exist 
+                                //and creating divs with customer data if they exist ||$row_cust["C_Name"] ||$row_cust["C_ID"]
+                            ?> <!-- php script to create customer card-body -->
+                        </div> <!-- .recentcustomers .card-body -->
+                    </div> <!-- .recentcustomers.card -->
+                </div> <!-- .recentcustomers -->
+            </div> <!-- .recent-grid -->
+        </main> <!-- quick overview, recent orders, recent customers -->
+    </div> <!-- not the sidebar -->
 
 </body>
 </html>
