@@ -1,16 +1,17 @@
 <?php
-    $Username=$_POST['Username'];
-    $password=$_POST['password'];
-    //database connection
-    $con = new mysqli('localhost','root','','test');
-    if($con->connect_error){
-        die("failed to connect :" .$con->connect_error);
-    }else{
-        $stmt = $con->prepare("insert into Admin_acct(a_user,a_pass)values(?,?)");
-        $stmt->bind_param("ss",$username,$password);
-        $stmt->execute();
-        echo "login successfull...";
-        $stmt->close();
-        $con->close();
-    }
+     $conn = mysqli_connect('localhost','root','');
+     mysqli_select_db($con,'dbms_project');
+         $A_Username = $_POST['A_Username'];
+         $A_Password = $_POST['A_Password'];
+ 
+         $s = "select * from admin_login_table where name = '$name'";
+         $result = mysqli_query($con,$s);
+         $num = mysqli_num_rows($result);
+         if($sum == 1){
+             echo"username Already Taken";
+         }else{
+         $log="INSERT INTO admin_login_table (A_Username,A_Password) VALUES('$A_Username','$A_Password')";
+         mysqli_query($con,$log);
+         echo"Login successfull";
+         }
 ?>

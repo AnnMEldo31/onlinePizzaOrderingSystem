@@ -1,16 +1,17 @@
 <?php
-    $Username=$_POST['Username'];
-    $password=$_POST['password'];
-    //database connection
-    $con = new mysqli('localhost','root','','test');
-    if($con->connect_error){
-        die("failed to connect :" .$con->connect_error);
-    }else{
-        $stmt = $con->prepare("insert into customer_account(username,password)values(?,?)");
-        $stmt->bind_param("ss",$username,$password);
-        $stmt->execute();
-        echo "login successfull...";
-        $stmt->close();
-        $con->close();
-    }
+     $conn = mysqli_connect('localhost','root','');
+     mysqli_select_db($con,'dbms_project');
+         $C_Username = $_POST['C_Username'];
+         $C_Password = $_POST['C_Password'];
+ 
+         $s = "select * from Cust_login_table where name = '$name'";
+         $result = mysqli_query($con,$s);
+         $num = mysqli_num_rows($result);
+         if($sum == 1){
+             echo"username Already Taken";
+         }else{
+         $cust_login="INSERT INTO Cust_login_table (C_Username,C_Password) VALUES('$C_Username','$C_Password')";
+         mysqli_query($con,$cust_login);
+         echo"Login successfull";
+         }
 ?>
