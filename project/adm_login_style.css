@@ -7,27 +7,25 @@ body{
         font-family: sans-serif;
  }
 .container{
-        display: inline;
         width: 350px;
         height: 300px;
         margin: 13% auto;
-        background: rgba(30, 31, 30, 0.973);
+        background: rgba(247, 248, 247, 0.973);
         border-radius: 10px;
         position: absolute;
+        right: 70%;
         top: 0%;
-        align-self: center;
-        margin-left: 10%;
  }
  h3{
     text-align: center;
     margin-bottom: 10px;
-    color: #008cba;
+    color: rgb(207, 53, 146);
 }
 .container form{
     width: 200px;
     position: absolute;
     top:30px;
-    margin-left: 20%;
+    left: 50px;
     color: #f1efeb;
 }
 form input{
@@ -36,36 +34,31 @@ form input{
     margin: 5px 0;
     border: 0;
     border-bottom: 1px solid #999;
-    outline: #008cba;
+    outline: rgb(15, 105, 146);
     background: transparent;
-    color: white;
 }
 ::placeholder{
     color: #777;
 }
-.submit-btn{
-    width: 55%;
-    padding: 10px 20px;
-    cursor: pointer;
-    display: block;
-    margin: auto;
-    background: linear-gradient(to right,#008cba,#38b3d8);
-    border: 0;
-    outline: none;
-    border-radius: 20px;
-    color: white;
 
-}
 .chech-box{
     margin:20px 10px   0;
 }
 span{
     color:#777;
     font-size: 15px;
-    bottom: 10px;
-    position: relative;
-    width: 100%;
-    padding: 0%;
-    margin: 0%;
-    display: flex;
+    bottom: 20px;
+    position: absolute;
+}
+.submit-btn{
+    width: 45%;
+    padding: 10px 10px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 20px;
+
 }

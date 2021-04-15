@@ -1,37 +1,26 @@
 <html>
 <head>
-	<title>multiple step form</title>
+	<meta charset="utf-8">
+	<title>customer sign up </title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div class="container">
-		<form id="form1">
+		<form action="signup-cust.php" ,method="POST">
 			<h3>CREATE ACCOUNT</h3>
 
-			<input type="text" placeholder="Name" required>
-			<input type="mail" placeholder="Email" required>
-			<input type="password" placeholder="Password" required>
-			<input type="password" placeholder="Confirm Password" required>
-			<input type="text" placeholder="Mobile number" required>
-				<div class="btn-box">
-					<button type="button">NEXT</button>
+			<input type="text" name="C_Name" placeholder="Name" required>
+			<input type="mail"  name="C_Mail"placeholder="Email" required>
+            <input type="username" name="C_Username" placeholder="Username" required>
+			<input type="password" name="C_Password" placeholder="Password" required>
+			<input type="number" name="C_Ph_No" placeholder="Phone_number" required>
+			<input type="number"  name="C_House_No" placeholder="House_number" required>
+			<input type="number"  name="C_Street_No" placeholder="Street_number" required>
+			<input type="number"  name="C_Pin_Code" placeholder="Pin_code " required>
+			<div class="btn-box">
+					<button type="button" name="save">SIGN UP</button>
 				</div>
 		</form>
-		<form id="form2" >
-			<h3>DETAILS</h3>
-			<input type="text" placeholder="CUSTOMER_ID" required>
-			<input type="password" placeholder="PERKS" required>
-			<div class="btn-box">
-				<button type="button">BACK</button>
-				<button type="button">SIGN UP</button>
-
-			</div>
-		</form>
-		<dvi class="step-row">
-			<div id="progress"></div>
-			<div class="step-col"><small>Step 1</small></div>
-			<div class="step-col"><small>Step 2</small></div>
-		</dvi>
 	</div>
 	
 </body>
