@@ -1,15 +1,21 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database_name="dbms_project";
+session_start();
+require_once('..\login_reg\config.php');
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database_name);
+if(isset($_POST['adm_login'])) {
+    $log_username = $_POST['log_username'];
+    $log_pw = $_POST['log_pw'];
 
-// Check connection
-if (!$conn) {
-  die("MySQL Connection failed: " . mysqli_connect_error());
+    $log_sqlStmt = "select a_username, a_password from adm_acct where a_username='$log_username' and a_password='$log_pw';";
+    $log_sqlQuery = mysqli_query($conn, $log_sqlStmt);
+    $row = mysqli_fetch_assoc($log_sqlQuery);
+    if (!$row) {
+        die("The username or password provided is incorrect.<br><a href=\"..\login_reg\login_land.php\">Try again</a>");
+    } else {
+        $_SESSION['username'] = $log_username;
+    }
+} else {
+    die("Failed to load website/log in.<br>Have you logged in? <a href=\"..\login_reg\login_land.php\">Log in</a>");
 }
 ?>
 
@@ -33,7 +39,7 @@ if (!$conn) {
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="" class="weblink active">
+                    <a href="index.php" class="weblink active">
                         <span class="las la-home"></span>
                         <span>Dashboard</span>
                     </a>
@@ -84,7 +90,11 @@ if (!$conn) {
             <div class="user-wrapper">
                 <div>
                     <small>Current User</small>
-                    <h4>Jane Doe</h4>
+                    <h4>
+                        <?php
+                        echo $log_username;
+                        ?>
+                    </h4>
                 </div> <!-- current account -->
             </div> <!-- .user-wrapper -->
         </header> <!-- page title, sidebar view toggle button, search, current account -->
@@ -198,7 +208,7 @@ if (!$conn) {
                                                 $count_order+=1;
                                             }
                                         } else {
-                                            echo("0 results");
+                                            echo "0 results";
                                         }
                                         ?>
                                     </tbody>
