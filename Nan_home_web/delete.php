@@ -11,14 +11,11 @@
     }
 
     $pizza_ID = $_GET['id'];
-    echo $pizza_ID;
     $querydel = "DELETE FROM Bill_Items where Pizza_ID = $pizza_ID";
     $result = mysqli_query($conn, $querydel);
+    $conn->close();
 
-    if($result){
-        echo "record deleted";
-    }
-    else{
-        echo "delete failed";
-    }
+    header("Location: http://localhost/onlinePizzaOrderingSystem/Nan_home_web/Cart.php");
+    exit();
+
     ?>
