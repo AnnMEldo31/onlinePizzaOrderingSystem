@@ -91,7 +91,8 @@
         <!--cart table ends here-->
         <div class="heading">
         <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BILLING.php" class="button">GO TO CHECKOUT</a>
-        </div>
+        <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BuildIT_1.html" class="button">CONTINUE SHOPPING</a>
+    </div>
 
         <!--covid sticky start-->
         <div id="overlay" onclick="off()">

@@ -46,9 +46,6 @@ tr:nth-child(even) {
     margin-right: auto;
   }
 
-table a, a:link, a:visited {
-  color: red;
-}
 
 .text-center {
   text-align: center;
@@ -66,4 +63,5 @@ table a, a:link, a:visited {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  display: flex;
 }
