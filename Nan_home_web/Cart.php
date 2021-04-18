@@ -53,8 +53,6 @@
         <h3 class="heading">YOUR CART</h3><br>
         <table class="center">
 
-           
-
             <?php
             // echo $_SESSION['topping_exp'];
             $Crust_ID = $_SESSION['CrustID_exp'];
@@ -79,7 +77,7 @@
                 echo "</td><td>" . "₹" . $rowpizza["B_Price"] . "</td><td>";
             ?>
 
-            <a href = "delete.php?id= <?php echo $rowPizzaID?>"><i class="fas fa-minus-circle"></i></a></td></tr>
+            <a href = "delete.php?id= <?php echo $rowPizzaID?>"><i class="fas fa-minus-circle" style="color: red;"></i></a></td></tr>
 
 
             <?php
@@ -89,15 +87,11 @@
             $conn->close();
             ?>
 
-          </table>
+        </table>
         <!--cart table ends here-->
-
-
-
-
-
-
-
+        <div class="heading">
+        <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BILLING.php" class="button">GO TO CHECKOUT</a>
+        </div>
 
         <!--covid sticky start-->
         <div id="overlay" onclick="off()">
@@ -110,11 +104,8 @@
         </div>
         <!--covid sticky end-->
 
-
-  
-
         <!--footer start-->
-        <div class="social" style = "position = absolute; margin-bottom = 0%;">
+        <div class="social" style="position: fixed;bottom: 0px;">
             <a href="#"><i class="fab fa-twitter" style="color: lightgrey; font-size: 30px;"></i>
             </a> &nbsp;
             <a href="#"><i class="fab fa-instagram" style="color: lightgrey; font-size: 30px;"></i>
