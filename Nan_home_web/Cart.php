@@ -74,23 +74,21 @@
 
             $i = 1;
             while($rowpizza = mysqli_fetch_array($data)){
-                $rowPizzaID = $rowpizza['Pizza_ID'];                   //Pizza_ID array
-                
+                $rowPizzaID = $rowpizza['Pizza_ID'];
                 echo "<tr><td>" . "Pizza " . $i; 
-                echo "</td><td>" . "₹" . $rowpizza["B_Price"] . "</td><td>" . "<a href = \"Cart.php?id=$rowpizzaID;?>\">" . "<i class=\"fas fa-minus-circle\"></i></a</tr>";
-                $i++;
-                
-            }
+                echo "</td><td>" . "₹" . $rowpizza["B_Price"] . "</td><td>";
+            ?>
 
+            <a href = "delete.php?id= <?php echo $rowPizzaID?>"><i class="fas fa-minus-circle"></i></a></td></tr>
+
+
+            <?php
+                $i++;  
+            }
             echo "</table>";
-
-            if (isset($_GET['remove'])){
-                $P_ID = $_GET['id'];
-                $querydel = mysqli_query($conn,"DELETE from Bill_Items where Pizza_ID = '$P_ID'");
-            }
-
             $conn->close();
             ?>
+
           </table>
         <!--cart table ends here-->
 
