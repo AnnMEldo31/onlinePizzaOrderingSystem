@@ -94,9 +94,49 @@ if (!isset($_SESSION['username'])) {
         </header> <!-- page title, sidebar view toggle button, search, current account -->
 
         <main>
-            
-        </main> <!-- quick overview, recent orders, recent customers -->
-    </div> <!-- not the sidebar -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>General Customer Data</h3>
+                </div> <!-- .card-header -->
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table style="width:100%">
+                            <thead id="table header">
+                                <tr>
+                                    <th id="id"><strong>ID</strong></th>
+                                    <th id="name"><strong>Name</strong></th>
+                                    <th id="uname"><strong>Username</strong></th>
+                                    <th id="mail"><strong>e-Mail</strong></th>
+                                    <th id="phno"><strong>Phone</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                $sql="select Cust_ID, C_Name, C_Username, C_Mail, C_Ph_No from cust_acct order by Cust_ID asc";
+                                $result=mysqli_query($conn, $sql);
+                                $num = mysqli_num_rows($result);
+                                if ($num > 0) {
+                                    while($row=mysqli_fetch_assoc($result)) {
+                                        echo "<tr>
+                                            <td>".$row["Cust_ID"]."</td>
+                                            <td>".$row["C_Name"]."</td>
+                                            <td>".$row["C_Username"]."</td>
+                                            <td>".$row["C_Mail"]."</td>
+                                            <td>".$row["C_Ph_No"]."</td>
+                                        </tr>";
+                                    }
+                                } else {
+                                    echo "0 results";
+                                }
+                                ?>
+                            </tbody>
+                        </table> <!-- table for all customers with details -->
+                    </div> <!-- .table-responsive -->
+                </div> <!-- .card-body -->
+            </div> <!--.card -->
+        </main> <!-- customers -->
+    </div> <!-- .main not the sidebar -->
 
 </body>
 </html>

@@ -271,8 +271,12 @@ thead tr {
     border-bottom: 2px solid #f0f0f0;
 }
 
+th {
+   text-align: left;
+}
+
 td, th {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0rem 0.3rem 0.5rem;
     font-size: 0.9rem;
     color: #222;
 }
