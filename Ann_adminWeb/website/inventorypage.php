@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once('..\login_reg\config.php');
+if (!isset($_SESSION['username'])) {
+    die("Failed to load website/log in.<br>Have you logged in? <a href=\"..\login_reg\login_land.php\">Log in</a>");
+}
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +11,7 @@ require_once('..\login_reg\config.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Edit Inventory | Pizzeria Admins</title>
+    <title>Inventory | Pizzeria Admins</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">    
 </head>
@@ -29,21 +32,33 @@ require_once('..\login_reg\config.php');
                     </a>
                 </li>
                 <li>
-                    <a href="datapage.php" class="weblink">
-                        <span class="las la-server"></span>
-                        <span>Database</span>
+                    <a href="customerspage.php" class="weblink">
+                        <span class="las la-users"></span>
+                        <span>Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orderspage.php" class="weblink">
+                        <span class="las la-file-invoice-dollar"></span>
+                        <span>Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="offerspage.php" class="weblink">
+                        <span class="lar la-star"></span>
+                        <span>Offers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inventorypage.php" class="weblink active">
+                        <span class="las la-pizza-slice"></span>
+                        <span>Inventory</span>
                     </a>
                 </li>
                 <li>
                     <a href="reportspage.php" class="weblink">
                         <span class="las la-chart-area"></span>
                         <span>Reports</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="editspage.php" class="weblink active">
-                        <span class="las la-edit"></span>
-                        <span>Edit Inventory</span>
                     </a>
                 </li>
                 <li>
@@ -63,13 +78,8 @@ require_once('..\login_reg\config.php');
                     <span class="las la-bars"></span>
                 </label> <!-- toggle bar icon -->
                 
-                Edit Inventory
+                Inventory
             </h2> <!-- sidebar view toggle button, page title -->
-
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search Here" />
-            </div> <!-- .search-wrapper -->
 
             <div class="user-wrapper">
                 <div>

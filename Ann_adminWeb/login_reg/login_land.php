@@ -3,6 +3,10 @@ require_once('config.php');
 ?>
 
 <?php
+	session_start();
+?>
+
+<?php
     #if coming from the registration page
     if (isset($_POST['adm_register'])) {
 		$username = $_POST['username'];
@@ -14,6 +18,8 @@ require_once('config.php');
             echo "Error during account creation<br>";
             echo "<a href=\"registration.html\">Register Again</a>";
         }
+	} else { #if coming from elsewhere, that is from a signout or new session
+		unset($_SESSION['username']);
 	}
 ?>
 
@@ -29,7 +35,7 @@ require_once('config.php');
     <form action="..\website\index.php" method="post">
 	<div class="container">
 		<h1>Log in</h1>
-				
+		
 		<input type="text" name="log_username" id="username" placeholder="Username" required>
 		<input type="password" name="log_pw" id="pw" placeholder="Password" required>
 

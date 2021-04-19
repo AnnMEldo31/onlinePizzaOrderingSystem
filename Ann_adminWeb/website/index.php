@@ -15,7 +15,9 @@ if(isset($_POST['adm_login'])) {
         $_SESSION['username'] = $log_username;
     }
 } else {
-    die("Failed to load website/log in.<br>Have you logged in? <a href=\"..\login_reg\login_land.php\">Log in</a>");
+    if (!isset($_SESSION['username'])) {
+        die("Failed to load website/log in.<br>Have you logged in? <a href=\"..\login_reg\login_land.php\">Log in</a>");
+    }
 }
 ?>
 
@@ -45,21 +47,33 @@ if(isset($_POST['adm_login'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="datapage.php" class="weblink">
-                        <span class="las la-server"></span>
-                        <span>Database</span>
+                    <a href="customerspage.php" class="weblink">
+                        <span class="las la-users"></span>
+                        <span>Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orderspage.php" class="weblink">
+                        <span class="las la-file-invoice-dollar"></span>
+                        <span>Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="offerspage.php" class="weblink">
+                        <span class="lar la-star"></span>
+                        <span>Offers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inventorypage.php" class="weblink">
+                        <span class="las la-pizza-slice"></span>
+                        <span>Inventory</span>
                     </a>
                 </li>
                 <li>
                     <a href="reportspage.php" class="weblink">
                         <span class="las la-chart-area"></span>
                         <span>Reports</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="editspage.php" class="weblink">
-                        <span class="las la-edit"></span>
-                        <span>Edit Inventory</span>
                     </a>
                 </li>
                 <li>
@@ -82,17 +96,12 @@ if(isset($_POST['adm_login'])) {
                 Dashboard
             </h2> <!-- sidebar view toggle button, page title -->
 
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search Here" />
-            </div> <!-- .search-wrapper -->
-
             <div class="user-wrapper">
                 <div>
                     <small>Current User</small>
                     <h4>
                         <?php
-                        echo $log_username;
+                        echo $_SESSION['username'];
                         ?>
                     </h4>
                 </div> <!-- current account -->
@@ -131,7 +140,7 @@ if(isset($_POST['adm_login'])) {
                         <span>Orders</span>
                     </div> <!-- text orders -->
                     <div>
-                        <span class="las la-clipboard-list"></span>
+                        <span class="las la-file-invoice-dollar"></span>
                     </div> <!-- icon orders -->
                 </div> <!-- .card-single orders -->
 

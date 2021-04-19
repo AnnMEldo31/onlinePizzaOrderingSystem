@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Account | Pizzeria Admins</title>
+    <title>Orders | Pizzeria Admins</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">    
 </head>
@@ -38,7 +38,7 @@ if (!isset($_SESSION['username'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="orderspage.php" class="weblink">
+                    <a href="orderspage.php" class="weblink active">
                         <span class="las la-file-invoice-dollar"></span>
                         <span>Orders</span>
                     </a>
@@ -62,7 +62,7 @@ if (!isset($_SESSION['username'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="accountpage.php" class="weblink active">
+                    <a href="accountpage.php" class="weblink">
                         <span class="las la-user-circle"></span>
                         <span>Account</span>
                     </a>
@@ -78,7 +78,7 @@ if (!isset($_SESSION['username'])) {
                     <span class="las la-bars"></span>
                 </label> <!-- toggle bar icon -->
                 
-                Account
+                Orders
             </h2> <!-- sidebar view toggle button, page title -->
 
             <div class="user-wrapper">
@@ -94,18 +94,9 @@ if (!isset($_SESSION['username'])) {
         </header> <!-- page title, sidebar view toggle button, search, current account -->
 
         <main>
-            <a href="../login_reg/login_land.php">
-                <div class="card-single small">
-                    <div>
-                        <h3>Sign Out</h3> 
-                    </div> <!-- text sign out -->
-                    <div>
-                        <span class="las la-sign-out-alt"></span>
-                    </div> <!-- icon sign out -->
-                </div> <!-- .card-single sign out -->
-            </a>
-        </main> <!-- main -->
-    </div> <!-- .main-content -->
+            
+        </main> <!-- quick overview, recent orders, recent customers -->
+    </div> <!-- not the sidebar -->
 
 </body>
 </html>
