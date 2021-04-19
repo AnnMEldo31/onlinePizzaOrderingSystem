@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/*for vertical line in sauce and cheese*/
+.vline {
+  border-left: 3px solid rgb(211, 202, 202);
+  height: 80%;
+  margin-left: 45%;
+  position: absolute;
+  z-index: -1;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: whitesmoke;
+    /* #E5E030 */
+}
+/* topnav*/
+nav{
+    height: 65px;
+    background: black;
+}
+
+/*login button*/
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+.pizzaName{
+    text-align: left;
+    color: whitesmoke;
+    margin-left: 75px;
+    margin-top: 25px;
+    position: absolute;
+}
+
+nav img{
+    width: 50px;
+    position: absolute;
+    top: 7px;
+    left: 2%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 25px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 65px;
+    margin: 0 15px;
+}
+
+nav ul li a{
+    position: relative;
+    color: whitesmoke;
+    font-size: 18px;
+    padding: 5px 0;
+    text-transform: uppercase;
+}
+.content{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    top: 100px;
+    background-image: url(pizza1.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+.content h1{
+    font-size: 70px;
+    margin-top: 80%;
+    color: #fff;
+}
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+/*footer*/
+.social{
+    height: 55px;
+    background: black;
+    padding-left: 20px;
+    padding-top: 12px;
+    width: 100%;
+}
