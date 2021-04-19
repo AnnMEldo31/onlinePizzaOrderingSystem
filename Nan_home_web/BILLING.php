@@ -79,32 +79,32 @@
                                 <h3>Billing Information</h3>
                                 <br>
                                 <label for="fname"><i class="fa fa-user">&nbsp;Full Name</i></label>
-                                <input type="text" id="fname" name="b_fname" placeholder="John M. Done">
+                                <input type="text" id="fname" name="b_fname" placeholder="John M. Done" required>
                                 
                                 <label for="email"><i class="fa fa-envelope">&nbsp;Email</i></label>
-                                <input type="text" id="email" name="b_mail" placeholder="johnmd@example.com">
+                                <input type="text" id="email" name="b_mail" placeholder="johnmd@example.com" required>
                                 
                                 <label for="adr"><i class="fa fa-address-card-o">&nbsp;Address</i></label>
-                                <input type="text" id="adr" name="b_adr" placeholder="452/17 Ichchanagar">
+                                <input type="text" id="adr" name="b_adr" placeholder="452/17 Ichchanagar" required>
                                 
                                 <label for="Phone"><i class="fa fa-phone">&nbsp;Phone Number</i></label>
-                                <input type="text" id="phone" name="b_ph_no" placeholder="9938264837">
+                                <input type="text" id="phone" name="b_ph_no" placeholder="9938264837" required>
             
 
                                 <div class="row">
                                     <div class="col-25">
                                         <label for="pincode">Pincode</label>
-                                        <input type="text" id="pin" name="b_pin" placeholder="395007"> 
+                                        <input type="text" id="pin" name="b_pin" placeholder="395007" required> 
                                     </div>
 
                                     <div class="col-25">
                                         <label for="street">Street No.</label>
-                                        <input type="text" id="street" name="b_street" placeholder="3568"> 
+                                        <input type="text" id="street" name="b_street" placeholder="3568" required> 
                                     </div>
 
                                     <div class="col-25">
                                         <label for="house">House No.</label>
-                                        <input type="text" id="house" name="b_house" placeholder="88A"> 
+                                        <input type="text" id="house" name="b_house" placeholder="88A" required> 
                                     </div>
                                 </div>
                             </div>
