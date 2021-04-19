@@ -53,7 +53,7 @@
                 <i class="fa fa-bars" id="btn"></i>
                 <i class="fa fa-times" id="cancel"></i>
             </label>
-            <img src="logo.png">
+            <img src="pizza_pics/logo.png">
             <div class="pizzaName">
                 PIZZERIA
             </div>
