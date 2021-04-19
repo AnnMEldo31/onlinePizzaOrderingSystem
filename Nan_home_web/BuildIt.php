@@ -103,7 +103,7 @@
                 $i+=1;
                 $sql_queryn = mysqli_query($conn,"INSERT into needs(Pizza_ID,Ingr_ID) values('$PizzaIDvar','$topping_ID')");
             }
-            echo "Pizza Successfully Added to Cart!<a href=\"http://localhost/onlinePizzaOrderingSystem/Nan_home_web/billing.html\"><button>go to cart</button></a>";
+            echo "Pizza Successfully Added to Cart!<a href=\"http://localhost/onlinePizzaOrderingSystem/Nan_home_web/cart.php?remove\"><button>go to cart</button></a>";
              }
 
 

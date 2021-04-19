@@ -53,8 +53,6 @@
         <h3 class="heading">YOUR CART</h3><br>
         <table class="center">
 
-           
-
             <?php
             // echo $_SESSION['topping_exp'];
             $Crust_ID = $_SESSION['CrustID_exp'];
@@ -74,32 +72,27 @@
 
             $i = 1;
             while($rowpizza = mysqli_fetch_array($data)){
-                $rowPizzaID = $rowpizza['Pizza_ID'];                   //Pizza_ID array
-                
+                $rowPizzaID = $rowpizza['Pizza_ID'];
                 echo "<tr><td>" . "Pizza " . $i; 
-                echo "</td><td>" . "₹" . $rowpizza["B_Price"] . "</td><td>" . "<a href = \"Cart.php?id=$rowpizzaID;?>\">" . "<i class=\"fas fa-minus-circle\"></i></a</tr>";
-                $i++;
-                
-            }
+                echo "</td><td>" . "₹" . $rowpizza["B_Price"] . "</td><td>";
+            ?>
 
+            <a href = "delete.php?id= <?php echo $rowPizzaID?>"><i class="fas fa-minus-circle" style="color: red;"></i></a></td></tr>
+
+
+            <?php
+                $i++;  
+            }
             echo "</table>";
-
-            if (isset($_GET['remove'])){
-                $P_ID = $_GET['id'];
-                $querydel = mysqli_query($conn,"DELETE from Bill_Items where Pizza_ID = '$P_ID'");
-            }
-
             $conn->close();
             ?>
-          </table>
+
+        </table>
         <!--cart table ends here-->
-
-
-
-
-
-
-
+        <div class="heading">
+        <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BILLING.php" class="button">GO TO CHECKOUT</a>
+        <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BuildIT_1.html" class="button">CONTINUE SHOPPING</a>
+    </div>
 
         <!--covid sticky start-->
         <div id="overlay" onclick="off()">
@@ -112,11 +105,8 @@
         </div>
         <!--covid sticky end-->
 
-
-  
-
         <!--footer start-->
-        <div class="social" style = "position = absolute; margin-bottom = 0%;">
+        <div class="social" style="position: fixed;bottom: 0px;">
             <a href="#"><i class="fab fa-twitter" style="color: lightgrey; font-size: 30px;"></i>
             </a> &nbsp;
             <a href="#"><i class="fab fa-instagram" style="color: lightgrey; font-size: 30px;"></i>

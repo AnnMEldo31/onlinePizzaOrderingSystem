@@ -1,5 +1,5 @@
 <?php
-    session_start();
+   session_start();
    $severname="localhost";
    $username="root";
    $password="";
@@ -27,6 +27,7 @@
     while($row = mysqli_fetch_array($query3data)){
         $totalprice = $row["Price"];                   
     }
+    $_SESSION['Tot_Price'] = $totalprice;
 ?>
 
 
@@ -111,7 +112,7 @@
                             <div class="col-50">
                                 <h3>Payment</h3>
                                 <br>
-                                <label for="cashonly">Only cash on delivery.</label>
+                                <label for="cashonly">Only Payment on delivery.</label>
                                 <input type="radio" id="cash" name="pay" value="cash" checked="checked">
                                 <i class="fa fa-money" aria-hidden="true" style="color: #2DA94F;"></i>
                                 <label for="cash">Cash</label>
