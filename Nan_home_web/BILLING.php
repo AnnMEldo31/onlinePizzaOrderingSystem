@@ -1,3 +1,36 @@
+<?php
+   session_start();
+   $severname="localhost";
+   $username="root";
+   $password="";
+   $database_name="dbms_project";
+
+   $conn = mysqli_connect($severname,$username,$password,$database_name);
+   //check connection
+   if(!$conn){
+        die('Connection Failed :' . mysqli_connect_error());
+    }
+
+    $Order_ID = $_SESSION['OrderID_exp'];
+
+    $query1 = "SELECT Bill_Items.Pizza_ID, Bill_Items.B_Price FROM Bill_Items where Order_ID = $Order_ID";
+    $querydata = mysqli_query($conn, $query1);        
+
+    $query2 = "SELECT COUNT(*) as total from Bill_Items where Order_ID = $Order_ID";
+    $query2data = mysqli_query($conn, $query2);
+    while($row = mysqli_fetch_array($query2data)){
+        $totalpizza = $row["total"];                   
+    }
+
+    $query3 = "SELECT SUM(B_Price) as Price from Bill_Items where Order_ID = $Order_ID";
+    $query3data = mysqli_query($conn, $query3);
+    while($row = mysqli_fetch_array($query3data)){
+        $totalprice = $row["Price"];                   
+    }
+    $_SESSION['Tot_Price'] = $totalprice;
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +53,7 @@
                 <i class="fa fa-bars" id="btn"></i>
                 <i class="fa fa-times" id="cancel"></i>
             </label>
-            <img src="logo.png">
+            <img src="pizza_pics/logo.png">
             <div class="pizzaName">
                 PIZZERIA
             </div>
@@ -46,32 +79,32 @@
                                 <h3>Billing Information</h3>
                                 <br>
                                 <label for="fname"><i class="fa fa-user">&nbsp;Full Name</i></label>
-                                <input type="text" id="fname" name="b_fname" placeholder="John M. Done">
+                                <input type="text" id="fname" name="b_fname" placeholder="John M. Done" required>
                                 
                                 <label for="email"><i class="fa fa-envelope">&nbsp;Email</i></label>
-                                <input type="text" id="email" name="b_mail" placeholder="johnmd@example.com">
+                                <input type="text" id="email" name="b_mail" placeholder="johnmd@example.com" required>
                                 
                                 <label for="adr"><i class="fa fa-address-card-o">&nbsp;Address</i></label>
-                                <input type="text" id="adr" name="b_adr" placeholder="452/17 Ichchanagar">
+                                <input type="text" id="adr" name="b_adr" placeholder="452/17 Ichchanagar" required>
                                 
                                 <label for="Phone"><i class="fa fa-phone">&nbsp;Phone Number</i></label>
-                                <input type="text" id="phone" name="b_ph_no" placeholder="9938264837">
+                                <input type="text" id="phone" name="b_ph_no" placeholder="9938264837" required>
             
 
                                 <div class="row">
                                     <div class="col-25">
                                         <label for="pincode">Pincode</label>
-                                        <input type="text" id="pin" name="b_pin" placeholder="395007"> 
+                                        <input type="text" id="pin" name="b_pin" placeholder="395007" required> 
                                     </div>
 
                                     <div class="col-25">
                                         <label for="street">Street No.</label>
-                                        <input type="text" id="street" name="b_street" placeholder="3568"> 
+                                        <input type="text" id="street" name="b_street" placeholder="3568" required> 
                                     </div>
 
                                     <div class="col-25">
                                         <label for="house">House No.</label>
-                                        <input type="text" id="house" name="b_house" placeholder="88A"> 
+                                        <input type="text" id="house" name="b_house" placeholder="88A" required> 
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +112,7 @@
                             <div class="col-50">
                                 <h3>Payment</h3>
                                 <br>
-                                <label for="cashonly">Only cash on delivery.</label>
+                                <label for="cashonly">Only Payment on delivery.</label>
                                 <input type="radio" id="cash" name="pay" value="cash" checked="checked">
                                 <i class="fa fa-money" aria-hidden="true" style="color: #2DA94F;"></i>
                                 <label for="cash">Cash</label>
@@ -99,13 +132,28 @@
 
             <div class="col-25">
                 <div class="bill_container">
-                    <h4>Cart<span class="price" style="color: black;"><i class="fa fa-shopping-cart"></i><b>4</b></span></h4>
-                    <p>pizza1<span class="price">₹100</span></p>
-                    <p>pizza2<span class="price">₹100</span></p>
-                    <p>pizza3<span class="price">₹100</span></p>
-                    <p>pizza4<span class="price">₹100</span></p>
+                    <h4>Cart<span class="price" style="color: black;"><i class="fa fa-shopping-cart"></i><b>
+                    <?php
+                         echo $totalpizza;
+                    ?>
+                    </b></span></h4>
+                    <table>
+                        <?php
+                            $i=1;
+                            while($rowpizza = mysqli_fetch_array($querydata)){
+                                $rowPizzaID = $rowpizza["Pizza_ID"];                   //Pizza_ID array
+                                echo "<tr><td style=\"width:100%\">" . "Pizza " . $i;
+                                echo "</td><td style=\"width:100%\"><span class=\"price\">" . "₹" . $rowpizza["B_Price"] . "</span></td></tr>";
+                                $i++; 
+                            }
+                       ?>
+                    </table>
                     <hr>
-                    <p>Total <span class="price" style="color: black;"><b>₹400</b></span></p>
+                    <p><b>Total</b> <span class="price" style="color: black;"><b>
+                    <?php
+                            echo "₹".$totalprice;
+                       ?>
+                    </b></span></p>
                 </div>
             </div>
         </div>
@@ -122,7 +170,7 @@
         <!--covid sticky end-->
     
         <!--footer start-->
-        <div class="social">
+        <div class="social" >
             <a href="#"><i class="fab fa-twitter" style="color: lightgrey; font-size: 30px;"></i>
             </a> &nbsp;
             <a href="#"><i class="fab fa-instagram" style="color: lightgrey; font-size: 30px;"></i>

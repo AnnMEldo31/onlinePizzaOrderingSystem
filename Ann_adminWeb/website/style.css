@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
+    --main-lighter: #5ec6e9;
     --main-color: #008cba;
     --main-darker: #004e68;
     --color-dark: #1D2231;
@@ -154,28 +155,6 @@ header label span {
     padding-right: 1rem;
 }
 
-.search-wrapper {
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    overflow-x: hidden;
-}
-
-.search-wrapper span {
-    display: inline-block;
-    padding: 0rem 1rem;
-    font-size: 1.5 rem;
-}
-
-.search-wrapper input {
-    height: 100%;
-    padding: 0.5rem;
-    border: none;
-    outline: none;
-}
-
 .user-wrapper {
     display: flex;
     align-items: center;
@@ -220,6 +199,28 @@ main {
 
 .card-single div:first-child span {
     color: var(--text-gray);
+}
+
+.small {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    background: var(--main-lighter);
+    color: var(--main-darker);
+    border-radius: 2px;
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.small div:last-child span {
+    margin-left: 0.5rem;
+    font-size: 1.75rem;
+    color: var(--main-darker);
+}
+
+.small a {
+    text-decoration: none;
+    color: var(--main-darker);
 }
 
 .recent-grid {
