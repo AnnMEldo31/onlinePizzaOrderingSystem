@@ -103,3 +103,14 @@ nav ul li a{
     padding-top: 12px;
     width: 100%;
 }
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+
+  .imgcontainer {
+    position: relative;
+    color: white;
+  }

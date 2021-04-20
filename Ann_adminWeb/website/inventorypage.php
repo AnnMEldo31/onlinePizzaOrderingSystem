@@ -94,7 +94,37 @@ if (!isset($_SESSION['username'])) {
         </header> <!-- page title, sidebar view toggle button, search, current account -->
 
         <main>
-            
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table style="width:100%">
+                            <tr style="border-bottom: 2px solid #77aacc;">
+                                <th id="i_id"><strong>Ingredient ID</strong></th>
+                                <th id="i_name"><strong>Ingredient Name</strong></th>
+                                <th id="i_type"><strong>Type</strong></th>
+                                <th id="i_price"><strong>Price</strong></th>
+                            </tr>
+                            <?php 
+                            $sql="select Ingr_ID, In_Name, In_Type, In_Price from ingredients order by Ingr_ID asc";
+                            $result=mysqli_query($conn, $sql);
+                            $num = mysqli_num_rows($result);
+                            if ($num > 0) {
+                                while($row=mysqli_fetch_assoc($result)) {
+                                    echo "<tr>
+                                        <td>".$row["Ingr_ID"]."</td>
+                                        <td>".$row["In_Name"]."</td>
+                                        <td>".$row["In_Type"]."</td>
+                                        <td>".$row["In_Price"]."</td>
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            ?>
+                        </table> <!-- table for all customers with details -->
+                    </div> <!-- .table-responsive -->
+                </div> <!-- .card-body -->
+            </div> <!--.card -->
         </main> <!-- quick overview, recent orders, recent customers -->
     </div> <!-- not the sidebar -->
 

@@ -94,7 +94,47 @@ if (!isset($_SESSION['username'])) {
         </header> <!-- page title, sidebar view toggle button, search, current account -->
 
         <main>
-            
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table style="width:100%">
+                            <tr style="border-bottom: 2px solid #77aacc;">
+                                <th id="o_id"><strong>Order ID</strong></th>
+                                <th id="c_id"><strong>Customer ID</strong></th>
+                                <th id="c_name"><strong>Customer Name</strong></th>
+                                <th id="chkout"><strong>Checkout Time</strong></th>
+                                <th id="amt"><strong>Bill Amount</strong></th>
+                                <th id="addr"><strong>Address</strong></th>
+                                <th id="contacts"><strong>Contacts</strong></th>
+                                <th id="paytype"><strong>Payment Type</strong></th>
+                                <th id="totalitems"><strong>Total items</strong></th>
+                            </tr>
+                            <?php 
+                            $sql="select Order_ID, C.Cust_ID, C_Name, O_Date_Time, Total_Price, O_House_No, O_Street_No, O_Pin_Code, O_Mail, Contact_No, Pay, Total_Orders from cust_acct as C, orders order by O_Date_Time desc";
+                            $result=mysqli_query($conn, $sql);
+                            $num = mysqli_num_rows($result);
+                            if ($num > 0) {
+                                while($row=mysqli_fetch_assoc($result)) {
+                                    echo "<tr>
+                                        <td>".$row["Order_ID"]."</td>
+                                        <td>".$row["Cust_ID"]."</td>
+                                        <td>".$row["C_Name"]."</td>
+                                        <td>".$row["O_Date_Time"]."</td>
+                                        <td>".$row["Total_Price"]."</td>
+                                        <td>House No. ".$row["O_House_No"].", Street No. ".$row["O_Street_No"].", PinCode ".$row["O_Pin_Code"]."</td>
+                                        <td>".$row["O_Mail"]." ".$row["Contact_No"]."</td>
+                                        <td>".$row["Pay"]."</td>
+                                        <td>".$row["Total_Orders"]."</td>
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            ?>
+                        </table> <!-- table for all customers with details -->
+                    </div> <!-- .table-responsive -->
+                </div> <!-- .card-body -->
+            </div> <!--.card -->
         </main> <!-- quick overview, recent orders, recent customers -->
     </div> <!-- not the sidebar -->
 
