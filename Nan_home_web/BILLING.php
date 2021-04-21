@@ -14,7 +14,8 @@
     $Order_ID = $_SESSION['OrderID_exp'];
 
     $query1 = "SELECT Bill_Items.Pizza_ID, Bill_Items.B_Price FROM Bill_Items where Order_ID = $Order_ID";
-    $querydata = mysqli_query($conn, $query1);        
+    $querydata = mysqli_query($conn, $query1);
+    $_SESSION['pizzanum'] = mysqli_num_rows($querydata);
 
     $query2 = "SELECT COUNT(*) as total from Bill_Items where Order_ID = $Order_ID";
     $query2data = mysqli_query($conn, $query2);
