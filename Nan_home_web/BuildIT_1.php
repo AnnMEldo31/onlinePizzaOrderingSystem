@@ -87,7 +87,7 @@
                     </div>
                 
                     <div class="card" style="float: left;">
-                        <img src="vegan.jpg" style="width:100%;">
+                        <img src="pizza_pics/vegan.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Vegan Crust</h5>
                             <p class="price">₹99</p>
