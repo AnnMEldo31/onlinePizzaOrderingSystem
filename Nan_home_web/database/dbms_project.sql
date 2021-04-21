@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2021 at 08:33 AM
+-- Generation Time: Apr 21, 2021 at 03:59 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -32,9 +32,19 @@ CREATE TABLE `bill_items` (
   `Cust_ID` int(11) NOT NULL,
   `Order_ID` int(11) NOT NULL,
   `B_Price` decimal(10,2) NOT NULL,
-  `B_Perks` int(11) NOT NULL,
   `Offer_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bill_items`
+--
+
+INSERT INTO `bill_items` (`Pizza_ID`, `Cust_ID`, `Order_ID`, `B_Price`, `Offer_ID`) VALUES
+(126, 1, 145, '210.00', 0),
+(127, 1, 145, '215.00', 0),
+(128, 1, 145, '195.00', 0),
+(130, 1, 145, '265.00', 0),
+(131, 1, 145, '170.00', 0);
 
 -- --------------------------------------------------------
 
@@ -48,17 +58,16 @@ CREATE TABLE `cust_acct` (
   `C_Ph_No` bigint(10) NOT NULL,
   `C_Mail` varchar(50) NOT NULL,
   `C_Username` varchar(15) NOT NULL,
-  `C_Password` varchar(15) NOT NULL,
-  `C_Perks` int(50) DEFAULT NULL
+  `C_Password` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cust_acct`
 --
 
-INSERT INTO `cust_acct` (`Cust_ID`, `C_Name`, `C_Ph_No`, `C_Mail`, `C_Username`, `C_Password`, `C_Perks`) VALUES
-(1, 'Bill', 9427274851, 'bill@gmail.com', 'billuser', 'Bill$123', NULL),
-(3, 'Charlie', 8464947684, 'charlie31@gmail.com', 'charlie31', 'Charlie@135', NULL);
+INSERT INTO `cust_acct` (`Cust_ID`, `C_Name`, `C_Ph_No`, `C_Mail`, `C_Username`, `C_Password`) VALUES
+(1, 'Bill', 9427274851, 'bill@gmail.com', 'billuser', 'Bill$123'),
+(3, 'Charlie', 8464947684, 'charlie31@gmail.com', 'charlie31', 'Charlie@135');
 
 -- --------------------------------------------------------
 
@@ -113,10 +122,6 @@ INSERT INTO `ingredients` (`Ingr_ID`, `In_Name`, `In_Type`, `In_Qty`, `In_Price`
 (10, 'Jalepeno', 'topping', 100, '30.00'),
 (11, 'Bell Pepper', 'topping', 100, '25.00'),
 (12, 'Mushroom', 'topping', 100, '35.00'),
-(13, 'neopolitan', 'sauce', 100, '45.00'),
-(14, 'betchamel', 'sauce', 100, '55.00'),
-(15, 'motzerella', 'cheese', 100, '35.00'),
-(16, 'cheddar', 'cheese', 100, '50.00'),
 (17, 'thin', 'crust', 100, '50.00'),
 (18, 'stuffed', 'crust', 100, '50.00'),
 (19, 'vegan', 'crust', 100, '60.00'),
@@ -124,7 +129,19 @@ INSERT INTO `ingredients` (`Ingr_ID`, `In_Name`, `In_Type`, `In_Qty`, `In_Price`
 (21, 'neopolitan', 'crust', 100, '45.00'),
 (22, 'siscilian', 'crust', 100, '45.00'),
 (23, 'focassia', 'crust', 100, '50.00'),
-(24, 'pan', 'crust', 100, '55.00');
+(24, 'pan', 'crust', 100, '55.00'),
+(25, 'neopolitan_less', 'sauce', 100, '45.00'),
+(26, 'neopolitan_normal', 'sauce', 100, '55.00'),
+(27, 'neopolitan_extra', 'sauce', 100, '65.00'),
+(28, 'betchamel_less', 'sauce', 100, '35.00'),
+(29, 'betchamel_normal', 'sauce', 100, '45.00'),
+(30, 'betchamel_extra', 'sauce', 100, '55.00'),
+(31, 'motzerella_less', 'cheese', 100, '35.00'),
+(32, 'motzerella_normal', 'cheese', 100, '40.00'),
+(33, 'motzerella_extra', 'cheese', 100, '45.00'),
+(34, 'cheddar_less', 'cheese', 100, '40.00'),
+(35, 'cheddar_normal', 'cheese', 100, '45.00'),
+(36, 'cheddar_extra', 'cheese', 100, '50.00');
 
 -- --------------------------------------------------------
 
@@ -134,9 +151,41 @@ INSERT INTO `ingredients` (`Ingr_ID`, `In_Name`, `In_Type`, `In_Qty`, `In_Price`
 
 CREATE TABLE `needs` (
   `Pizza_ID` int(11) NOT NULL,
-  `Ingr_ID` int(11) NOT NULL,
-  `Amt` enum('less','extra','+','') NOT NULL
+  `Ingr_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `needs`
+--
+
+INSERT INTO `needs` (`Pizza_ID`, `Ingr_ID`) VALUES
+(126, 3),
+(126, 4),
+(126, 17),
+(126, 29),
+(126, 32),
+(127, 2),
+(127, 7),
+(127, 8),
+(127, 21),
+(127, 26),
+(127, 32),
+(128, 8),
+(128, 10),
+(128, 19),
+(128, 28),
+(128, 35),
+(130, 3),
+(130, 4),
+(130, 8),
+(130, 9),
+(130, 18),
+(130, 29),
+(130, 32),
+(131, 5),
+(131, 22),
+(131, 26),
+(131, 32);
 
 -- --------------------------------------------------------
 
@@ -147,9 +196,8 @@ CREATE TABLE `needs` (
 CREATE TABLE `orders` (
   `Order_id` int(11) NOT NULL,
   `Cust_ID` int(11) NOT NULL,
-  `O_Date_Time` datetime NOT NULL DEFAULT current_timestamp(),
+  `O_Date_Time` datetime DEFAULT NULL,
   `Total_Price` decimal(10,2) NOT NULL,
-  `Total_Perks` int(11) DEFAULT NULL,
   `O_House_No` int(5) NOT NULL,
   `O_Street_No` int(5) NOT NULL,
   `O_Pin_Code` int(6) NOT NULL,
@@ -163,8 +211,8 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`Order_id`, `Cust_ID`, `O_Date_Time`, `Total_Price`, `Total_Perks`, `O_House_No`, `O_Street_No`, `O_Pin_Code`, `O_Mail`, `Contact_No`, `Pay`, `Total_Orders`) VALUES
-(47, 1, '2021-04-12 11:16:06', '0.00', NULL, 0, 0, 0, '', 0, 'cash', 0);
+INSERT INTO `orders` (`Order_id`, `Cust_ID`, `O_Date_Time`, `Total_Price`, `O_House_No`, `O_Street_No`, `O_Pin_Code`, `O_Mail`, `Contact_No`, `Pay`, `Total_Orders`) VALUES
+(145, 1, NULL, '620.00', 49, 3847, 600092, 'kri@gmail.com', 4959495039, 'cash', 0);
 
 --
 -- Indexes for dumped tables
@@ -182,7 +230,8 @@ ALTER TABLE `bill_items`
 -- Indexes for table `cust_acct`
 --
 ALTER TABLE `cust_acct`
-  ADD PRIMARY KEY (`Cust_ID`);
+  ADD PRIMARY KEY (`Cust_ID`),
+  ADD UNIQUE KEY `C_Username` (`C_Username`);
 
 --
 -- Indexes for table `c_address`
@@ -219,7 +268,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `bill_items`
 --
 ALTER TABLE `bill_items`
-  MODIFY `Pizza_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Pizza_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `cust_acct`
@@ -237,13 +286,13 @@ ALTER TABLE `c_address`
 -- AUTO_INCREMENT for table `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `Ingr_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `Ingr_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `Order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- Constraints for dumped tables

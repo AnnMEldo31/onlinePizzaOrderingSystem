@@ -29,7 +29,7 @@
         //making sure there is no pending cart.....time_stamp is not null
         $timeobj = mysqli_query($conn, "SELECT Order_ID from orders where Cust_ID = $Cust_ID and O_Date_Time is NULL");
         while($row = mysqli_fetch_array($timeobj)){
-            $time = $row["Order_ID"];                     //new time
+            $time = $row["Order_ID"];                     //new time 
         }
         if(empty($time)){
             $sql_query1 = mysqli_query($conn,"INSERT INTO Orders (Cust_ID) VALUES('$Cust_ID')"); //initiating order_ID when time stamp is not null for the cust_ID
