@@ -55,12 +55,12 @@
 
             <?php
             // echo $_SESSION['topping_exp'];
-            $Crust_ID = $_SESSION['CrustID_exp'];
-            $Cheese_ID = $_SESSION['CheeseID_exp'];
-            $Sauce_ID = $_SESSION['SauceID_exp'];
+            // $Crust_ID = $_SESSION['CrustID_exp'];
+            // $Cheese_ID = $_SESSION['CheeseID_exp'];
+            // $Sauce_ID = $_SESSION['SauceID_exp'];
             // $Pizza_ID = $_SESSION['PizzaID_exp'];
             $Order_ID = $_SESSION['OrderID_exp'];
-            $Cust_ID = 1;
+            // $Cust_ID = 1;
             // echo $_SESSION['OrderID_exp'];
 
             $PizzaIDArr ="SELECT Pizza_ID, B_Price FROM Bill_Items where Order_ID = $Order_ID";
@@ -91,7 +91,7 @@
         <!--cart table ends here-->
         <div class="heading">
         <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BILLING.php" class="button">GO TO CHECKOUT</a>
-        <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BuildIT_1.html" class="button">CONTINUE SHOPPING</a>
+        <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BuildIT_1.php" class="button">CONTINUE SHOPPING</a>
     </div>
 
         <!--covid sticky start-->
