@@ -54,7 +54,7 @@ if(isset($_POST['cust_login'])) {
                 if (isset($_SESSION['cust_id'])) {
                     echo "<a href=\"BuildIT_1.php\">BUILD IT</a>";
                 } else {
-                    echo "<a href=\"login.php\" onclick=\"loginalert()\">BUILD IT</a>"
+                    echo "<a href=\"login.php\" onclick=\"loginalert()\">BUILD IT</a>";
                 }
                 ?></li>
                 <li><a href="#">OFFERS</a></li>
@@ -63,7 +63,7 @@ if(isset($_POST['cust_login'])) {
                 if (isset($_SESSION['cust_name'])) {
                     echo "<li><a href=\"#\">".$_SESSION['cust_name']."'s ACCOUNT</a></li>";
                 } else {
-                    echo "<li><a href=\"login_reg/registration.html\">REGISTER</a>/<a href=\"login.php\">LOGIN</a></li>";
+                    echo "<li><a href=\"login_reg/registration.html\">REGISTER</a> <:) </style> <a href=\"login.php\"> LOGIN</a></li>";
                 }
                 ?> 
             </ul>
