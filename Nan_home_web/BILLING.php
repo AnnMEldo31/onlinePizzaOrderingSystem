@@ -10,7 +10,7 @@
    if(!$conn){
         die('Connection Failed :' . mysqli_connect_error());
     }
-
+    
     $Order_ID = $_SESSION['OrderID_exp'];
 
     $query1 = "SELECT Bill_Items.Pizza_ID, Bill_Items.B_Price FROM Bill_Items where Order_ID = $Order_ID";
