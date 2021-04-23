@@ -12,6 +12,10 @@
         die('Connection Failed :' . mysqli_connect_error());
     }
 
+    if (!isset($_SESSION['cust_id'])) {
+        die("Failed to load website/log in.<br>Have you logged in? <a href=\"..\login_reg\login_land.php\">Log in</a>");
+    }
+
     if(isset($_POST['save'])){
 
         $toppingarray = $_POST['ingr'];
@@ -23,7 +27,7 @@
         $_SESSION['topping_exp'] = implode(', ',$toppingarray);
         // echo $_SESSION['topping_exp'];
     
-        $Cust_ID=1;
+        $Cust_ID=$_SESSION['cust_id'];
         //cust_ID get from importings from login thingy..... Require 'login.php';
 
         //making sure there is no pending cart.....time_stamp is not null
@@ -103,8 +107,11 @@
                 $i+=1;
                 $sql_queryn = mysqli_query($conn,"INSERT into needs(Pizza_ID,Ingr_ID) values('$PizzaIDvar','$topping_ID')");
             }
+        }
+        
+        if (isset($_SESSION['PizzaID_exp'])) {
             echo "Pizza Successfully Added to Cart!<a href=\"http://localhost/onlinePizzaOrderingSystem/Nan_home_web/cart.php?remove\"><button>go to cart</button></a>";
-             }
+        }
 
 
         mysqli_close($conn);
