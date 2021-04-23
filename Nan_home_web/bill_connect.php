@@ -33,8 +33,7 @@
         Total_Price = '$price', 
         Total_Orders = '$num_pizzas' 
         where Order_ID = $Order_ID";
-        // $sql_query="INSERT INTO orders (Cust_ID, O_House_No, O_Street_No, O_Pin_Code, O_Mail, Contact_No, Pay) VALUES('1', '$O_House_No', '$O_Street_No', '$O_Pin_Code', '$O_Mail', '$Contact_No', '$Pay')";
-
+        
         if(mysqli_query($conn, $query1)){
             echo "successful checkout";
         }
