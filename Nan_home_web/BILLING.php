@@ -105,7 +105,7 @@
 
                                     <div class="col-25">
                                         <label for="house">House No.</label>
-                                        <input type="text" id="house" name="b_house" placeholder="88A" required> 
+                                        <input type="text" id="house" name="b_house" placeholder="88" required> 
                                     </div>
                                 </div>
                             </div>
@@ -156,6 +156,7 @@
                        ?>
                     </b></span></p>
                 </div>
+                <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/Cart.php"><button class="btn">GO TO CART</button></a>
             </div>
         </div>
         <br><br>
