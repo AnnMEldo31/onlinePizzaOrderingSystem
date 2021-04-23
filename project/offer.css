@@ -76,25 +76,19 @@ nav ul li a{
     padding: 5px 0;
     text-transform: uppercase;
 }
-.content{
+table{
+    border-collapse: collapse;
     width: 100%;
-    height: 500px;
-    position: relative;
-    top: 100px;
-    background-image: url(pizza1.jpg);
-    background-size: cover;
-    background-position: center center;
+    color: #cf2c5d;
+    font-family: monospace;
+    font-size: 25px;
+    text-align: left;
 }
-.content h1{
-    font-size: 70px;
-    margin-top: 80%;
-    color: #fff;
+th{
+    background-color: #cf2c5d;
+    color: white;
 }
-.content p{
-    margin: 20px auto;
-    font-weight: 100;
-    line-height: 25px;
-}
+tr:nth-child(even) {background-color: #f2f2f2;}
 /*footer*/
 .social{
     height: 55px;
@@ -104,13 +98,3 @@ nav ul li a{
     width: 100%;
 }
 
-.top-left {
-    position: absolute;
-    top: 8px;
-    left: 16px;
-  }
-
-  .imgcontainer {
-    position: relative;
-    color: white;
-  }
