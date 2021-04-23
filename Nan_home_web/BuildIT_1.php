@@ -41,7 +41,6 @@ if (!isset($_SESSION['cust_name'])) {
         </nav>
         <!--top nav end-->
 
-
         <!--covid sticky start-->
         <div id="overlay" onclick="off()">
             COVID STUFF HERE
@@ -61,6 +60,15 @@ if (!isset($_SESSION['cust_name'])) {
                 <button class="tablinks" onclick="ingred(event, 'sauce')">CHEESE & SAUCE</button>
                 <button class="tablinks" onclick="ingred(event, 'toppings')">TOPPINGS</button>
             </div>
+            
+            <div class="cartfloat">
+                <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/Cart.php">
+                    <button>
+                        <i class="fa fa-shopping-cart" style="font-size: 36px;"></i>
+                    </button>
+                </a>
+            </div>
+        
             
             <!--all tabs form starts here-->    
             <form action="BuildIt.php" method="post">
