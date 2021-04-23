@@ -10,8 +10,8 @@
         die('Connection Failed :' . mysqli_connect_error());
     }
 
-    $Order_ID = $_GET['id'];-
-    $querydel = "DELETE FROM Orders where Order_ID = $Order_ID and O_Date_Time is NULL";
+    $Order_ID = $_GET['id'];
+    $querydel = "DELETE FROM orders where Order_id = $Order_ID and O_Date_Time is NULL";
     $result = mysqli_query($conn, $querydel);
     $conn->close();
 
