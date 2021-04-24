@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 03:59 PM
+-- Generation Time: Apr 24, 2021 at 10:04 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `adm_acct`
+--
+
+CREATE TABLE `adm_acct` (
+  `a_id` int(11) NOT NULL,
+  `a_username` varchar(30) NOT NULL,
+  `a_password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `adm_acct`
+--
+
+INSERT INTO `adm_acct` (`a_id`, `a_username`, `a_password`) VALUES
+(1, 'Nan', 'Nann$1631');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `bill_items`
 --
 
@@ -40,11 +59,25 @@ CREATE TABLE `bill_items` (
 --
 
 INSERT INTO `bill_items` (`Pizza_ID`, `Cust_ID`, `Order_ID`, `B_Price`, `Offer_ID`) VALUES
-(126, 1, 145, '210.00', 0),
 (127, 1, 145, '215.00', 0),
 (128, 1, 145, '195.00', 0),
-(130, 1, 145, '265.00', 0),
-(131, 1, 145, '170.00', 0);
+(132, 1, 145, '225.00', 0),
+(134, 4, 146, '185.00', 0),
+(135, 4, 146, '200.00', 0),
+(136, 4, 147, '240.00', 0),
+(139, 4, 149, '200.00', 0);
+
+--
+-- Triggers `bill_items`
+--
+DELIMITER $$
+CREATE TRIGGER `Del_Logs` AFTER DELETE ON `bill_items` FOR EACH ROW UPDATE orders SET Total_Orders = Total_Orders - 1 where Order_ID = old.Order_ID
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `Insert_Logs` AFTER INSERT ON `bill_items` FOR EACH ROW UPDATE orders SET Total_Orders = Total_Orders + 1 where Order_ID = new.Order_ID
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -67,7 +100,8 @@ CREATE TABLE `cust_acct` (
 
 INSERT INTO `cust_acct` (`Cust_ID`, `C_Name`, `C_Ph_No`, `C_Mail`, `C_Username`, `C_Password`) VALUES
 (1, 'Bill', 9427274851, 'bill@gmail.com', 'billuser', 'Bill$123'),
-(3, 'Charlie', 8464947684, 'charlie31@gmail.com', 'charlie31', 'Charlie@135');
+(3, 'Charlie', 8464947684, 'charlie31@gmail.com', 'charlie31', 'Charlie@135'),
+(4, 'boopboop', 2755848394, 'nan@gmail.com', 'nann', 'Boop$1631');
 
 -- --------------------------------------------------------
 
@@ -159,11 +193,6 @@ CREATE TABLE `needs` (
 --
 
 INSERT INTO `needs` (`Pizza_ID`, `Ingr_ID`) VALUES
-(126, 3),
-(126, 4),
-(126, 17),
-(126, 29),
-(126, 32),
 (127, 2),
 (127, 7),
 (127, 8),
@@ -175,17 +204,35 @@ INSERT INTO `needs` (`Pizza_ID`, `Ingr_ID`) VALUES
 (128, 19),
 (128, 28),
 (128, 35),
-(130, 3),
-(130, 4),
-(130, 8),
-(130, 9),
-(130, 18),
-(130, 29),
-(130, 32),
-(131, 5),
-(131, 22),
-(131, 26),
-(131, 32);
+(132, 3),
+(132, 4),
+(132, 9),
+(132, 10),
+(132, 17),
+(132, 18),
+(132, 26),
+(132, 32),
+(132, 35),
+(134, 9),
+(134, 10),
+(134, 18),
+(134, 28),
+(134, 32),
+(135, 8),
+(135, 12),
+(135, 20),
+(135, 29),
+(135, 32),
+(136, 1),
+(136, 5),
+(136, 6),
+(136, 18),
+(136, 29),
+(136, 32),
+(139, 4),
+(139, 20),
+(139, 26),
+(139, 36);
 
 -- --------------------------------------------------------
 
@@ -198,7 +245,7 @@ CREATE TABLE `orders` (
   `Cust_ID` int(11) NOT NULL,
   `O_Date_Time` datetime DEFAULT NULL,
   `Total_Price` decimal(10,2) NOT NULL,
-  `O_House_No` int(5) NOT NULL,
+  `O_House_No` varchar(5) NOT NULL,
   `O_Street_No` int(5) NOT NULL,
   `O_Pin_Code` int(6) NOT NULL,
   `O_Mail` varchar(50) NOT NULL,
@@ -212,11 +259,21 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`Order_id`, `Cust_ID`, `O_Date_Time`, `Total_Price`, `O_House_No`, `O_Street_No`, `O_Pin_Code`, `O_Mail`, `Contact_No`, `Pay`, `Total_Orders`) VALUES
-(145, 1, NULL, '620.00', 49, 3847, 600092, 'kri@gmail.com', 4959495039, 'cash', 0);
+(145, 1, NULL, '620.00', '49', 3847, 600092, 'kri@gmail.com', 4959495039, 'cash', 0),
+(146, 4, '2021-04-23 15:24:09', '385.00', '49', 3848, 600092, 'nann@gmail.com', 9327271539, 'gpay', 2),
+(147, 4, '2021-04-23 15:43:18', '240.00', '69', 4969, 374994, 'kri@gmail.com', 8486486944, 'cash', 1),
+(149, 4, '2021-04-23 21:49:10', '200.00', '40', 4594, 600092, 'rejr@gmail.com', 4959495039, 'cash', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `adm_acct`
+--
+ALTER TABLE `adm_acct`
+  ADD PRIMARY KEY (`a_id`),
+  ADD UNIQUE KEY `a_user` (`a_username`);
 
 --
 -- Indexes for table `bill_items`
@@ -265,16 +322,22 @@ ALTER TABLE `orders`
 --
 
 --
+-- AUTO_INCREMENT for table `adm_acct`
+--
+ALTER TABLE `adm_acct`
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `bill_items`
 --
 ALTER TABLE `bill_items`
-  MODIFY `Pizza_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `Pizza_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `cust_acct`
 --
 ALTER TABLE `cust_acct`
-  MODIFY `Cust_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Cust_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `c_address`
@@ -292,7 +355,7 @@ ALTER TABLE `ingredients`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `Order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- Constraints for dumped tables
