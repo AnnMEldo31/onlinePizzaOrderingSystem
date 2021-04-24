@@ -110,7 +110,7 @@ if (!isset($_SESSION['username'])) {
                                 <th id="totalitems"><strong>Total items</strong></th>
                             </tr>
                             <?php 
-                            $sql="select Order_ID, C.Cust_ID, C_Name, O_Date_Time, Total_Price, O_House_No, O_Street_No, O_Pin_Code, O_Mail, Contact_No, Pay, Total_Orders from cust_acct as C, orders order by O_Date_Time desc";
+                            $sql="select Order_ID, orders.Cust_ID, C.C_Name, O_Date_Time, Total_Price, O_House_No, O_Street_No, O_Pin_Code, O_Mail, Contact_No, Pay, Total_Orders from cust_acct as C natural join orders where O_Date_Time is not null order by O_Date_Time desc";
                             $result=mysqli_query($conn, $sql);
                             $num = mysqli_num_rows($result);
                             if ($num > 0) {

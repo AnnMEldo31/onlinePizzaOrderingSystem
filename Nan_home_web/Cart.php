@@ -12,6 +12,9 @@
         die('Connection Failed :' . mysqli_connect_error());
     }
 
+    if (!isset($_SESSION['cust_name'])) {
+        die("Failed to load website/log in.<br>Have you logged in? <a href=\"login_reg\login_land.php\">Log in</a>");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +43,11 @@
                 PIZZERIA
             </div>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">BUILD IT</a></li>
+                <li><a href="Homepage.php">HOME</a></li>
+                <li><a href="BuildIT_1.php">BUILD IT</a></li>
                 <li><a href="#">OFFERS</a></li>
                 <li><a href="#">ABOUT US</a></li>
-                <li><a href="#">MY ACCOUNT</a></li>
+                <li><a href="#"><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
             </ul>
         </nav>
         <!--top nav end-->
@@ -54,20 +57,15 @@
         <table class="center">
 
             <?php
-            // echo $_SESSION['topping_exp'];
-            // $Crust_ID = $_SESSION['CrustID_exp'];
-            // $Cheese_ID = $_SESSION['CheeseID_exp'];
-            // $Sauce_ID = $_SESSION['SauceID_exp'];
-            // $Pizza_ID = $_SESSION['PizzaID_exp'];
+            if (!isset($_SESSION['OrderID_exp'])) {
+                die("You have not placed an order.<br><a href=\"BuildIT_1.php\"> Order Now! </a>");
+            }
             $Order_ID = $_SESSION['OrderID_exp'];
-            // $Cust_ID = 1;
-            // echo $_SESSION['OrderID_exp'];
-
+            
             $PizzaIDArr ="SELECT Pizza_ID, B_Price FROM Bill_Items where Order_ID = $Order_ID";
             
             $data = mysqli_query($conn,$PizzaIDArr);
-            $total = mysqli_num_rows($data);
-
+            
             //inserting crust, sauce, cheese
 
             $i = 1;
@@ -90,20 +88,9 @@
         </table>
         <!--cart table ends here-->
         <div class="heading">
-        <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BILLING.php" class="button">GO TO CHECKOUT</a>
-        <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/BuildIT_1.php" class="button">CONTINUE SHOPPING</a>
+        <a href="BILLING.php" class="button">GO TO CHECKOUT</a>
+        <a href="BuildIT_1.php" class="button">CONTINUE SHOPPING</a>
     </div>
-
-        <!--covid sticky start-->
-        <div id="overlay" onclick="off()">
-            COVID STUFF HERE
-        </div>
-        <div class="fixed-btn">
-            <button onclick="on()">
-                <i class="fas fa-head-side-mask" style="font-size: 36px;"></i>
-            </button>
-        </div>
-        <!--covid sticky end-->
 
         <!--footer start-->
         <div class="social" style="position: fixed;bottom: 0px;">

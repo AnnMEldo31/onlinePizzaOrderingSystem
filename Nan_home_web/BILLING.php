@@ -10,7 +10,7 @@
    if(!$conn){
         die('Connection Failed :' . mysqli_connect_error());
     }
-
+    
     $Order_ID = $_SESSION['OrderID_exp'];
 
     $query1 = "SELECT Bill_Items.Pizza_ID, Bill_Items.B_Price FROM Bill_Items where Order_ID = $Order_ID";
@@ -29,6 +29,7 @@
         $totalprice = $row["Price"];                   
     }
     $_SESSION['Tot_Price'] = $totalprice;
+
 ?>
 
 
@@ -46,7 +47,7 @@
         <!--for phone icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-
+        
         <!--top nav start-->
         <nav>
             <input type="checkbox" id="check">
@@ -67,6 +68,7 @@
             </ul>
         </nav>
         <!--top nav end-->
+
         
         <br>
         <br>
@@ -85,13 +87,10 @@
                                 <label for="email"><i class="fa fa-envelope">&nbsp;Email</i></label>
                                 <input type="text" id="email" name="b_mail" placeholder="johnmd@example.com" required>
                                 
-                                <label for="adr"><i class="fa fa-address-card-o">&nbsp;Address</i></label>
-                                <input type="text" id="adr" name="b_adr" placeholder="452/17 Ichchanagar" required>
-                                
                                 <label for="Phone"><i class="fa fa-phone">&nbsp;Phone Number</i></label>
                                 <input type="text" id="phone" name="b_ph_no" placeholder="9938264837" required>
             
-
+                                <label for="adr"><i class="fa fa-address-card-o">&nbsp;Address</i></label>
                                 <div class="row">
                                     <div class="col-25">
                                         <label for="pincode">Pincode</label>
@@ -105,7 +104,7 @@
 
                                     <div class="col-25">
                                         <label for="house">House No.</label>
-                                        <input type="text" id="house" name="b_house" placeholder="88A" required> 
+                                        <input type="text" id="house" name="b_house" placeholder="88" required> 
                                     </div>
                                 </div>
                             </div>
@@ -156,6 +155,10 @@
                        ?>
                     </b></span></p>
                 </div>
+                <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/Cart.php"><button class="btn">GO TO CART</button></a>
+                <br>
+                <a href = "cancel.php?id= <?php echo $Order_ID?>"><button class="cancelbtn">CANCEL ORDER</button></a>
+                
             </div>
         </div>
         <br><br>

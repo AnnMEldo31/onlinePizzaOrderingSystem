@@ -275,3 +275,23 @@ background-color: rgb(82, 78, 78);
 .btn:hover{
   background-color: yellowgreen;
 }
+
+.cartfloat{
+  position: fixed;
+  padding: 1%;
+  background: #CB4335;
+  width: auto;
+  color: aliceblue;
+  top: 15%;
+  right: 3%;
+  z-index: 1;
+  border-radius: 2px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.cartfloat button{
+border: none;
+background: none;
+outline: none;
+}

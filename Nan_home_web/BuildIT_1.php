@@ -1,9 +1,17 @@
+<?php
+session_start();
+require_once('login_reg\config.php');
+if (!isset($_SESSION['cust_name'])) {
+    die("Failed to load website/log in.<br>Have you logged in? <a href=\"..\login_reg\login_land.php\">Log in</a>");
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Build IT</title>
+        <title>Build It | Pizzeria</title>
         <link rel="stylesheet" href="homepage.css">
         <link rel="stylesheet" href="BuildIT_1.css">
         <script src="buildIt.js"></script>
@@ -24,26 +32,14 @@
                 PIZZERIA
             </div>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">BUILD IT</a></li>
+                <li><a href="Homepage.php">HOME</a></li>
+                <li><a href="BuildIT_1.php">BUILD IT</a></li>
                 <li><a href="#">OFFERS</a></li>
                 <li><a href="#">ABOUT US</a></li>
-                <li><a href="#">MY ACCOUNT</a></li>
+                <li><a href="#"><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
             </ul>
         </nav>
         <!--top nav end-->
-
-
-        <!--covid sticky start-->
-        <div id="overlay" onclick="off()">
-            COVID STUFF HERE
-        </div>
-        <div class="fixed-btn">
-            <button onclick="on()">
-                <i class="fas fa-head-side-mask" style="font-size: 36px;"></i>
-            </button>
-        </div>
-        <!--covid sticky end-->
 
 
         <div style="height: auto;">
@@ -53,6 +49,15 @@
                 <button class="tablinks" onclick="ingred(event, 'sauce')">CHEESE & SAUCE</button>
                 <button class="tablinks" onclick="ingred(event, 'toppings')">TOPPINGS</button>
             </div>
+            
+            <div class="cartfloat">
+                <a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/Cart.php">
+                    <button>
+                        <i class="fa fa-shopping-cart" style="font-size: 36px;"></i>
+                    </button>
+                </a>
+            </div>
+        
             
             <!--all tabs form starts here-->    
             <form action="BuildIt.php" method="post">

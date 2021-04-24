@@ -1,9 +1,29 @@
+<?php
+session_start();
+require_once('login_reg/config.php');
+if(isset($_POST['cust_login'])) {
+    $log_username = $_POST['log_username'];
+    $log_pw = $_POST['log_pw'];
+    
+    $log_sqlStmt = "select cust_id, c_name from cust_acct where c_username='$log_username' and c_password='$log_pw';";
+    $log_sqlQuery = mysqli_query($conn, $log_sqlStmt);
+    $row = mysqli_fetch_assoc($log_sqlQuery);
+    if (!$row) {
+        die("The username or password provided is incorrect.<br><a href=\"index.php\">Try again</a>");
+    } else {
+        $_SESSION['cust_uname'] = $log_username;
+        $_SESSION['cust_name'] = $row['c_name'];
+        $_SESSION['cust_id'] = $row['cust_id'];
+    }
+} 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pizza</title>
+        <title>Home | Pizzeria</title>
         <link rel="stylesheet" href="homepage.css">
         <script src="homepage.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -23,12 +43,29 @@
             <div class="pizzaName">
                 PIZZERIA
             </div>
+            <script>
+                function loginalert() {
+                    window.alert("To order, you must first login");
+                }
+            </script>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">BUILD IT</a></li>
+                <li><a href="Homepage.php">HOME</a></li>
+                <li><?php
+                if (isset($_SESSION['cust_id'])) {
+                    echo "<a href=\"BuildIT_1.php\">BUILD IT</a>";
+                } else {
+                    echo "<a href=\"login.php\" onclick=\"loginalert()\">BUILD IT</a>";
+                }
+                ?></li>
                 <li><a href="#">OFFERS</a></li>
-                <li><a href="#">ABOUT US</a></li>
-                <li><a href="#">MY ACCOUNT</a></li>
+                <li><a href="#">ABOUT US</a></li> 
+                <?php 
+                if (isset($_SESSION['cust_name'])) {
+                    echo "<li><a href=\"#\">".$_SESSION['cust_name']."'s ACCOUNT</a></li>";
+                } else {
+                    echo "<li><a href=\"login_reg/registration.html\">REGISTER</a> <:) </style> <a href=\"login.php\"> LOGIN</a></li>";
+                }
+                ?> 
             </ul>
         </nav>
         <!--top nav end-->
