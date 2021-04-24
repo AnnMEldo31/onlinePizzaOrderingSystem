@@ -92,17 +92,6 @@
         <a href="BuildIT_1.php" class="button">CONTINUE SHOPPING</a>
     </div>
 
-        <!--covid sticky start-->
-        <div id="overlay" onclick="off()">
-            COVID STUFF HERE
-        </div>
-        <div class="fixed-btn">
-            <button onclick="on()">
-                <i class="fas fa-head-side-mask" style="font-size: 36px;"></i>
-            </button>
-        </div>
-        <!--covid sticky end-->
-
         <!--footer start-->
         <div class="social" style="position: fixed;bottom: 0px;">
             <a href="#"><i class="fab fa-twitter" style="color: lightgrey; font-size: 30px;"></i>

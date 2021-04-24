@@ -41,17 +41,6 @@ if (!isset($_SESSION['cust_name'])) {
         </nav>
         <!--top nav end-->
 
-        <!--covid sticky start-->
-        <div id="overlay" onclick="off()">
-            COVID STUFF HERE
-        </div>
-        <div class="fixed-btn">
-            <button onclick="on()">
-                <i class="fas fa-head-side-mask" style="font-size: 36px;"></i>
-            </button>
-        </div>
-        <!--covid sticky end-->
-
 
         <div style="height: auto;">
             <!--tab start-->
