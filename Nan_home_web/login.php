@@ -38,14 +38,15 @@
     <title>Log in | Pizzeria </title>
 </head>
 <body>
-    <form action="homepage.php" method="post">
+    <form action="Homepage.php" method="post">
 	<div class="container">
-		<h1>Log in</h1><h3> or <a href="../registration.html">Register</a></h3>
+		<h1>Log in</h1><h3> or <a href="login_reg/registration.html">Register</a></h3>
 		
 		<input type="text" name="log_username" id="username" placeholder="Username" required>
 		<input type="password" name="log_pw" id="pw" placeholder="Password" required>
 		<input type="submit" name="cust_login" value="Log In">
 	</div>
+    Go to <a href="Homepage.php">HOME</a>
 	</form>
 </body>
 </html>
