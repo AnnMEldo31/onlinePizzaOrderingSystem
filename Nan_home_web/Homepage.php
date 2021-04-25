@@ -197,7 +197,7 @@ if(isset($_POST['cust_login'])) {
                 <button onclick="on()">
                     <i class="fas fa-head-side-mask" style="font-size: 36px;"></i>
                 </button>
-                </div>
+            </div>
             <!--covid sticky end-->
         </div>
         <!--footer start-->
