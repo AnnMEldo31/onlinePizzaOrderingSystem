@@ -38,7 +38,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BILLING</title>
+        <title>Checkout | Pizzeria</title>
         <link rel="stylesheet" href="homepage.css">
         <link rel="stylesheet" href="Billing.css">
         <script src="homepage.js"></script>
@@ -60,15 +60,14 @@
                 PIZZERIA
             </div>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">BUILD IT</a></li>
+                <li><a href="Homepage.php">HOME</a></li>
+                <li><a href="BuildIT_1.php">BUILD IT</a></li>
                 <li><a href="#">OFFERS</a></li>
                 <li><a href="#">ABOUT US</a></li>
-                <li><a href="#">MY ACCOUNT</a></li>
+                <li><a href="#"><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
             </ul>
         </nav>
         <!--top nav end-->
-
         
         <br>
         <br>

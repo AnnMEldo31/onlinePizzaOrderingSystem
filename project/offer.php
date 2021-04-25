@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +43,7 @@
           if ($conn-> connect_error){
             die("connection failed:". $conn-> connect_error);
           }
-          $sql="select Offer_ID, OffeR_Discount, Offer_Desc, Day from Offer_table ";
+          $sql="select Offer_ID, Offer_Discount, Offer_Desc, Day from Offer_table ";
           $result=$conn-> query($sql);
 
           if ($result-> num_rows > 0){
