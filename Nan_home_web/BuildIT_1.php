@@ -34,9 +34,9 @@ if (!isset($_SESSION['cust_name'])) {
             <ul>
                 <li><a href="Homepage.php">HOME</a></li>
                 <li><a href="BuildIT_1.php">BUILD IT</a></li>
-                <li><a href="#">OFFERS</a></li>
-                <li><a href="#">ABOUT US</a></li>
-                <li><a href="#"><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
+                <li><a href="..\project\offer.php">OFFERS</a></li>
+                <li><a href="..\project\about_us.html">ABOUT US</a></li>
+                <li><a href="accountpage.php"><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
             </ul>
         </nav>
         <!--top nav end-->
@@ -301,7 +301,7 @@ if (!isset($_SESSION['cust_name'])) {
                                 <span class="checkmark_crust"></span>
                             </label>
                         </div>
-
+                       
                         <div style="float: right; margin-right: 15%; margin-top: 5%;">
                             <h3>VEG OPTIONS</h3>
                             <br>

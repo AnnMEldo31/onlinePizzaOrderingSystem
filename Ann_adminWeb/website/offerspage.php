@@ -94,7 +94,37 @@ if (!isset($_SESSION['username'])) {
         </header> <!-- page title, sidebar view toggle button, search, current account -->
 
         <main>
-            
+        <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table style="width:100%">
+                            <tr style="border-bottom: 2px solid #77aacc;">
+                                <th id="off_id"><strong>Offer ID</strong></th>
+                                <th id="off_desc"><strong>Offer Description</strong></th>
+                                <th id="off_day"><strong>Offer Day</strong></th>
+                                <th id="off_disc"><strong>Discount</strong></th>
+                            </tr>
+                            <?php 
+                            $sql="select Offer_ID, Offer_Discount, Offer_Desc, Day from offer_table order by Offer_ID asc";
+                            $result=mysqli_query($conn, $sql);
+                            $num = mysqli_num_rows($result);
+                            if ($num > 0) {
+                                while($row=mysqli_fetch_assoc($result)) {
+                                    echo "<tr>
+                                        <td>".$row["Offer_ID"]."</td>
+                                        <td>".$row["Offer_Desc"]."</td>
+                                        <td>".$row["Day"]."</td>
+                                        <td>".$row["Offer_Discount"]."</td>
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            ?>
+                        </table> <!-- table for all customers with details -->
+                    </div> <!-- .table-responsive -->
+                </div> <!-- .card-body -->
+            </div> <!--.card -->
         </main> <!-- quick overview, recent orders, recent customers -->
     </div> <!-- not the sidebar -->
 

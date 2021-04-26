@@ -1,3 +1,12 @@
+<?php
+session_start();
+require_once('login_reg/config.php');
+
+if(isset($_SESSION['cust_name'])) {
+    $cname=$_SESSION['cust_name'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +31,11 @@
             PIZZERIA
         </div>
         <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">BUILD IT</a></li>
-            <li><a href="#">OFFERS</a></li>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">MY ACCOUNT</a></li>
+            <li><a href="..\Nan_home_web\Homepage.php">HOME</a></li>
+            <li><a href="..\Nan_home_web\BuildIT_1">BUILD IT</a></li>
+            <li><a href="offer.php">OFFERS</a></li>
+            <li><a href="about_us.php">ABOUT US</a></li>
+            <li><a href="..\Nan_home_web\accountpage.php"><?php echo $cname."'s "; ?> ACCOUNT</a></li>
         </ul>
     </nav>
     <!--top nav end-->
