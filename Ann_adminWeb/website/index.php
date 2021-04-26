@@ -201,7 +201,7 @@ if(isset($_POST['adm_login'])) {
                                     </thead>
                                     <tbody>
                                         <?php 
-                                        $sql_orders="select Order_ID, Cust_ID, O_Date_Time, Total_Price from orders order by o_date_time desc";
+                                        $sql_orders="select Order_ID, Cust_ID, O_Date_Time, Total_Price from orders where O_Date_Time is not null order by o_date_time desc";
                                         $result_orders=mysqli_query($conn, $sql_orders);
                                         $num_orders = mysqli_num_rows($result_orders);
                                         if ($num_orders > 0) {

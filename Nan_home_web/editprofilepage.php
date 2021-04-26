@@ -16,6 +16,7 @@ $rowoldcust=mysqli_fetch_assoc($resultoldcust);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="headerfootercss.css">
+    <link rel="stylesheet" href="fullpagetab.css">
     <script src="https://kit.fontawesome.com/931749e247.js" crossorigin="anonymous"></script>
     <script>
         function openPage(pageName, elmnt, color) {
@@ -33,7 +34,6 @@ $rowoldcust=mysqli_fetch_assoc($resultoldcust);
         }
         document.getElementById("defaultOpen").click();        // Get the element with id="defaultOpen" and click on it
     </script>
-    <link rel="stylesheet" href="fullpagetab.css">
     <title>Edit Details | Pizzeria</title>
 </head>
 <body>
@@ -51,16 +51,16 @@ $rowoldcust=mysqli_fetch_assoc($resultoldcust);
         <ul>
             <li><a href="Homepage.php">HOME</a></li>
             <li><a href="BuildIT_1.php">BUILD IT</a></li>
-            <li><a href="#">OFFERS</a></li>
-            <li><a href="#">ABOUT US</a></li>
+            <li><a href="..\project\offer.php">OFFERS</a></li>
+            <li><a href="..\project\about_us.html">ABOUT US</a></li>
             <li><a href="accountpage.php"><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
         </ul>
     </nav>
     <!--top nav end-->
 
     <main>
-        <button class="tablink" onclick="openPage('Contacts', this, 'green')">Contacts</button>
-        <button class="tablink" onclick="openPage('Password', this, 'orange')" id="defaultOpen">Password</button>
+        <button class="tablink" onclick="openPage('Contacts', this, '#B695C0')">Contacts</button>
+        <button class="tablink" onclick="openPage('Password', this, '#ADD8E6')" id="defaultOpen">Password</button>
 
         <div id="Contacts" class="tabcontent">
             <h3>Edit Contacts</h3>

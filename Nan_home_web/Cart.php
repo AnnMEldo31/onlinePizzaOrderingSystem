@@ -15,6 +15,7 @@
     if (!isset($_SESSION['cust_name'])) {
         die("Failed to load website/log in.<br>Have you logged in? <a href=\"login_reg\login_land.php\">Log in</a>");
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -46,9 +47,9 @@
             <ul>
                 <li><a href="Homepage.php">HOME</a></li>
                 <li><a href="BuildIT_1.php">BUILD IT</a></li>
-                <li><a href="#">OFFERS</a></li>
-                <li><a href="#">ABOUT US</a></li>
-                <li><a href="#"><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
+                <li><a href="..\project\offer.php">OFFERS</a></li>
+                <li><a href="..\project\about_us.html">ABOUT US</a></li>
+                <li><a href="accountpage.php"><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
             </ul>
         </nav>
         <!--top nav end-->
@@ -68,9 +69,6 @@
             $data = mysqli_query($conn,$PizzaIDArr);
            
             
-            // $queryIngr->prepare($sqlIngr);
-                 
-
             $i = 1;
             while($rowpizza = mysqli_fetch_array($data)){
                 $rowPizzaID = $rowpizza['Pizza_ID'];
@@ -105,7 +103,7 @@
                     </header>
                 
                     <div class="w3-container">
-                        <input type="radio" checked="checked" name="radio">One
+                        <input type="radio" checked="checked" name="radio"><?php echo ""; ?>
                         <br>
                         <input type="radio" name="radio">Two
                         <br>

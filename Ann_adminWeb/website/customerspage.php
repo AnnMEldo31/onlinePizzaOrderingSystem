@@ -113,17 +113,17 @@ if (!isset($_SESSION['username'])) {
                             </thead>
                             <tbody>
                                 <?php 
-                                $sql="select Cust_ID, C_Name, C_Username, C_Mail, C_Ph_No from cust_acct order by Cust_ID asc";
+                                $sql="select cust_id, c_name, c_username, c_mail, c_ph_no from disp_cust order by cust_id asc";
                                 $result=mysqli_query($conn, $sql);
                                 $num = mysqli_num_rows($result);
                                 if ($num > 0) {
                                     while($row=mysqli_fetch_assoc($result)) {
                                         echo "<tr>
-                                            <td>".$row["Cust_ID"]."</td>
-                                            <td>".$row["C_Name"]."</td>
-                                            <td>".$row["C_Username"]."</td>
-                                            <td>".$row["C_Mail"]."</td>
-                                            <td>".$row["C_Ph_No"]."</td>
+                                            <td>".$row["cust_id"]."</td>
+                                            <td>".$row["c_name"]."</td>
+                                            <td>".$row["c_username"]."</td>
+                                            <td>".$row["c_mail"]."</td>
+                                            <td>".$row["c_ph_no"]."</td>
                                         </tr>";
                                     }
                                 } else {

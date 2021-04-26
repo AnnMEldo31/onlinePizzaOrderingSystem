@@ -57,8 +57,8 @@ if(isset($_POST['cust_login'])) {
                     echo "<a href=\"login.php\" onclick=\"loginalert()\">BUILD IT</a>";
                 }
                 ?></li>
-                <li><a href="#">OFFERS</a></li>
-                <li><a href="#">ABOUT US</a></li> 
+                <li><a href="..\project\offer.php">OFFERS</a></li>
+                <li><a href="..\project\about_us.html">ABOUT US</a></li> 
                 <?php 
                 if (isset($_SESSION['cust_name'])) {
                     echo "<li><a href=\"accountpage.php\">".$_SESSION['cust_name']."'s ACCOUNT</a></li>";
@@ -197,7 +197,7 @@ if(isset($_POST['cust_login'])) {
                 <button onclick="on()">
                     <i class="fas fa-head-side-mask" style="font-size: 36px;"></i>
                 </button>
-            </div>
+                </div>
             <!--covid sticky end-->
         </div>
         <!--footer start-->

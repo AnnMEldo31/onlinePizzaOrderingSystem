@@ -47,9 +47,13 @@ if(isset($_POST['cust_addAddress'])) {
     $newstrno = $_POST['streetno'];
     $newpincode = $_POST['pincode'];
 
-    $query_addrnew = "";
-    $result_addrnew=mysqli_query($conn, $query_addrnew);
-    $row_addrnew=mysqli_fetch_assoc($result_addrnew);
+    $query_addrnew = "insert into c_address (cust_id,c_house_no,c_street_no,c_pin_code) values('$cid','$newhno','$newstrno','$newpincode')";
+    if(mysqli_query($conn, $query_addrnew)) {
+        $msg_addrnew = "successfully added new address";
+    } else {
+        $msg_addrnew = "Error: Unsuccessful addition. " . $query_addrnew . " " . mysqli_error($conn);
+    }
+    echo "<script>window.alert('$msg_addrnew')</script>";
 }
 
 ?>
@@ -79,8 +83,8 @@ if(isset($_POST['cust_addAddress'])) {
         <ul>
             <li><a href="Homepage.php">HOME</a></li>
             <li><a href="BuildIT_1.php">BUILD IT</a></li>
-            <li><a href="#">OFFERS</a></li>
-            <li><a href="#">ABOUT US</a></li>
+            <li><a href="..\project\offer.php">OFFERS</a></li>
+            <li><a href="..\project\about_us.html">ABOUT US</a></li>
             <li><a href=""><?php echo $_SESSION['cust_name']."'s"; ?> ACCOUNT</a></li>
         </ul>
     </nav>
@@ -127,26 +131,26 @@ if(isset($_POST['cust_addAddress'])) {
                             <th id="pincode"><strong>Pin Code</strong></th>
                             <th id="street"><strong>Street No.</strong></th>
                             <th id="house"><strong>House No.</strong></th>
-                            <th id="edit"></th>
                             <th id="delete"></th>
                         </tr>
                     </thead>
                     <tbody>
+                    <a href = "delete.php?id= <?php echo $rowPizzaID?>"></a>
                         <?php 
-                        $queryaddr="select c_pin_code, c_street_no, c_house_no from c_address where cust_id = '$cid'";
+                        $queryaddr="select add_id, c_pin_code, c_street_no, c_house_no from c_address where cust_id = '$cid'";
                         $resultaddr=mysqli_query($conn, $queryaddr);
                         $numaddr = mysqli_num_rows($resultaddr);
                         if ($numaddr > 0) {
                             $count = 1;
                             while($rowaddr=mysqli_fetch_assoc($resultaddr)) {
+                                $addr_id=$rowaddr['add_id'];
                                 //use row to fetch the element of each column
                                 echo "<tr>
                                     <td>".$count."</td>
                                     <td>".$rowaddr["c_pin_code"]."</td>
                                     <td>".$rowaddr["c_street_no"]."</td>
                                     <td>".$rowaddr["c_house_no"]."</td>
-                                    <td id=\"edit\"><button>Edit</button></td>
-                                    <td id=\"delete\"><button>Delete</button></td>
+                                    <td id=\"delete\"><a href = \"deleteaddr.php?id=$addr_id\"><i class=\"fas fa-minus-circle\" style=\"color: red;\"></i></a></td>
                                 </tr>";
                                 $count += 1;
                             }
