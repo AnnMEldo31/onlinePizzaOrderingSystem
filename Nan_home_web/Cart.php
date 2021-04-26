@@ -76,18 +76,29 @@
                 echo "<tr><td>" . "Pizza " . $i;
                 echo "</td><td>" . "₹" . $rowpizza["B_Price"] . "</td><td>";
             ?>
-
             <a href = "delete.php?id= <?php echo $rowPizzaID?>"><i class="fas fa-minus-circle" style="color: red;"></i></a></td></tr>
-
-
             <?php
                 $i++;  
             }
-            echo "</table>";
-            $conn->close();
+            //show discount details
+            $query_offerapplied = "SELECT offer_id, total_price, final_price FROM orders WHERE Order_ID=$Order_ID";
+            $result_offerapplied = mysqli_query($conn, $query_offerapplied);
+            $row_offerapplied = mysqli_fetch_array($result_offerapplied);
+            if ($row_offerapplied['offer_id'] != 0) {
+                $a = $row_offerapplied['offer_id'];
+                $b = $row_offerapplied['total_price'];
+                $c = $row_offerapplied['final_price'];
+                $query_offerapplied2 = "SELECT offer_desc FROM offer_table WHERE offer_id=$a";
+                $result_offerapplied2 = mysqli_query($conn, $query_offerapplied2);
+                $row_offerapplied2 = mysqli_fetch_array($result_offerapplied2);
+                echo '<tr><td><b>Total Price before Discount</b></td><td><b> ₹'.$b.'</b></td></tr>';
+                echo '<tr><td><b>Discount Applied ('.$row_offerapplied2['offer_desc'].')</b></td><td><b> − ₹'.$b-$c.'</b></td></tr>';
+                echo '<tr><td><b>Final Price after Discount</b></td><td><b> ₹'.$c.'</b></td></tr>';
+            }
+        
             ?>
-
         </table>
+
         <!--cart table ends here-->
         <div style="padding-left:25%;padding-top:2%">
             <a href="BILLING.php" class="button">GO TO CHECKOUT</a>
@@ -101,22 +112,27 @@
                         class="w3-button w3-display-topright">&times;</span>
                         <h2>DISCOUNTS</h2>
                     </header>
-                
                     <div class="w3-container">
-                        <input type="radio" checked="checked" name="radio"><?php echo ""; ?>
-                        <br>
-                        <input type="radio" name="radio">Two
-                        <br>
-                        <input type="radio" name="radio">Three
-                        <br>
-                        <input type="radio" name="radio">Four
+                        <form action="applyoffer.php" method="post"> <!-- applyoffer.php -->
+                            <?php 
+                            $query_availoffer = "SELECT offer_desc, offer_id FROM offer_table WHERE offer_day = dayname(curdate());";
+                            $result_availoffer = mysqli_query($conn, $query_availoffer);
+                            while($row_availoffer = mysqli_fetch_array($result_availoffer)) {
+                                echo '<input type="radio" name="radio_offer" value="'.$row_availoffer['offer_id'].'"> '.$row_availoffer['offer_desc'].'<br>';
+                            }
+                            ?>
+                            <input type="radio" name="radio_offer" value="0"> None
+
+                            <input type="submit" value="APPLY" class="btn" name="applyoffer">
+                        </form>
                     </div>
-                    
                 </div>
             </div>
            
         </div>
-
+<?php
+mysqli_close($conn);
+?>
 
         <!--footer start-->
         <div class="social" style="position: fixed;bottom: 0px;">

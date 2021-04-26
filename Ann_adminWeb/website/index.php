@@ -148,7 +148,7 @@ if(isset($_POST['adm_login'])) {
                     <div>
                         <h1>
                             <?php
-                            $query="SELECT * from cust_acct";
+                            $query="SELECT * from offer_table";
                             $result=mysqli_query($conn, $query);
                             
                             echo mysqli_num_rows($result);

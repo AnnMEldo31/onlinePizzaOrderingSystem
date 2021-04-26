@@ -28,8 +28,6 @@
     while($row = mysqli_fetch_array($query3data)){
         $totalprice = $row["Price"];                   
     }
-    $_SESSION['Tot_Price'] = $totalprice;
-
 ?>
 
 

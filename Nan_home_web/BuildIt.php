@@ -36,13 +36,15 @@
             $time = $row["Order_ID"];                     //new time 
         }
         if(empty($time)){
-            $sql_query1 = mysqli_query($conn,"INSERT INTO Orders (Cust_ID) VALUES('$Cust_ID')"); //initiating order_ID when time stamp is not null for the cust_ID
+                $sql_query1 = mysqli_query($conn,"INSERT INTO Orders (Cust_ID) VALUES('$Cust_ID')"); //initiating order_ID when time stamp is not null for the cust_ID
         }
 
-        $orderIDobj = mysqli_query($conn,"SELECT Order_ID FROM Orders where order_id IN(SELECT max(order_ID) from orders where Cust_ID = $Cust_ID);");//getting order_ID
-        while($row = mysqli_fetch_array($orderIDobj)){
-            $rowOrderID = $row["Order_ID"];                     //new Order_ID
-        }
+        $orderIDobj = mysqli_query($conn,"SELECT Order_ID FROM Orders where Cust_ID = $Cust_ID AND O_Date_Time IS NULL;");//getting order_ID
+        $row = mysqli_fetch_array($orderIDobj);
+        $rowOrderID = $row["Order_ID"];                     //new Order_ID
+    }
+
+
         $_SESSION['OrderID_exp'] = $rowOrderID;
         // echo $_SESSION['OrderID_exp'];
 
@@ -113,7 +115,6 @@
             echo "Pizza Successfully Added to Cart!<a href=\"http://localhost/onlinePizzaOrderingSystem/Nan_home_web/cart.php?remove\"><button>go to cart</button></a>";
         }
 
-
         mysqli_close($conn);
-    }
+    
 ?>
