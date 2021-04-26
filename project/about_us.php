@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('login_reg/config.php');
+require_once('../Nan_home_web/login_reg/config.php');
 
 if(isset($_SESSION['cust_name'])) {
     $cname=$_SESSION['cust_name'];
@@ -35,7 +35,13 @@ if(isset($_SESSION['cust_name'])) {
             <li><a href="..\Nan_home_web\BuildIT_1">BUILD IT</a></li>
             <li><a href="offer.php">OFFERS</a></li>
             <li><a href="about_us.php">ABOUT US</a></li>
-            <li><a href="..\Nan_home_web\accountpage.php"><?php echo $cname."'s "; ?> ACCOUNT</a></li>
+            <?php 
+                if (isset($_SESSION['cust_name'])) {
+                    echo "<li><a href=\"accountpage.php\">".$_SESSION['cust_name']."'s ACCOUNT</a></li>";
+                } else {
+                    echo "<li><a href=\"login_reg/registration.html\">REGISTER</a> <:) </style> <a href=\"login.php\"> LOGIN</a></li>";
+                }
+            ?>
         </ul>
     </nav>
     <!--top nav end-->
@@ -62,4 +68,3 @@ if(isset($_SESSION['cust_name'])) {
     
 </body>
 </html>
-

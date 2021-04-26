@@ -34,19 +34,76 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="forms.css">
+	<link rel="stylesheet" href="headerfootercss.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> <!--buttons-->
+    <style>
+        body {
+            position: relative;
+            background-image: url('pizza_pics/login_bg4.jfif');
+            background-size: cover;
+            opacity: 1;
+            z-index: -1;
+        }
+        .back {
+            position: absolute;
+            top: 40%;
+            left: 8%;
+            height: auto;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        h1, input {
+            opacity: 1;
+            margin: 5px;
+        }
+        .btns {
+            background-color: #ED820E;
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+        }
+    </style>
     <title>Log in | Pizzeria </title>
 </head>
 <body>
-    <form action="Homepage.php" method="post">
-	<div class="container">
-		<h1>Log in</h1><h3> or <a href="login_reg/registration.html">Register</a></h3>
-		
-		<input type="text" name="log_username" id="username" placeholder="Username" required>
-		<input type="password" name="log_pw" id="pw" placeholder="Password" required>
-		<input type="submit" name="cust_login" value="Log In">
-	</div>
-    Go to <a href="Homepage.php">HOME</a>
-	</form>
+    <!--top nav start-->
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fa fa-bars" id="btn"></i>
+            <i class="fa fa-times" id="cancel"></i>
+        </label>
+        <img src="pizza_pics/logo.png">
+        <div class="pizzaName">
+            PIZZERIA
+        </div>
+        <ul>
+            <li><a href="Homepage.php">HOME</a></li>
+            <li><a href="../project/offer.php">OFFERS</a></li>
+            <li><a href="../project/about_us.php">ABOUT US</a></li>
+            <li><a href="login_reg/registration.html">REGISTER</a></li>
+        </ul>
+    </nav>
+    <!--top nav end-->
+    <div class="back">
+        <form action="Homepage.php" method="post">
+        <div class="container">
+            <h1>LOG IN</h1>
+            
+            <input type="text" name="log_username" id="username" placeholder="Username" required> <br>
+            <input type="password" name="log_pw" id="pw" placeholder="Password" required> <br>
+            <input class="btns" type="submit" name="cust_login" value="Log In">
+        </div>
+        </form>
+    </div>
 </body>
 </html>

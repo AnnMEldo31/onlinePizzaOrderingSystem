@@ -34,6 +34,6 @@ if(isset($_POST['applyoffer'])) {
     
 }
 
-echo '<a href="http://localhost/onlinePizzaOrderingSystem/Nan_home_web/Cart.php">Go To Cart</a>';
-
+header("Location: http://localhost/onlinePizzaOrderingSystem/Nan_home_web/Cart.php");
+exit();
 ?>

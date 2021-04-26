@@ -24,6 +24,7 @@ if(isset($_POST['cust_login'])) {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home | Pizzeria</title>
+        <link rel="stylesheet" href="../project/covid.css">
         <link rel="stylesheet" href="homepage.css">
         <script src="homepage.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -191,7 +192,10 @@ if(isset($_POST['cust_login'])) {
             </div>
             <!--covid sticky start-->
             <div id="overlay" onclick="off()">
-                COVID STUFF HERE
+                <div class="container">
+                    <img src="../project/corona.jpg" class="image">
+                <div class="overlay">Coronavirus disease(COVID-19)is an infection disease caused by a newly discovered coronavirus.The coronavirus can be spread from person to person.so prevent ourselves by wearing mask,hand hygiene ,and physical distancing.To learn more ,visit the website <a href="https://covid19.india.gov.in">visit covid19.india.gov.in</a></div>
+            </div>
             </div>
             <div class="fixed-btn">
                 <button onclick="on()">

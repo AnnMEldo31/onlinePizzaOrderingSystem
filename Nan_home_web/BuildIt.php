@@ -116,5 +116,7 @@
         }
 
         mysqli_close($conn);
+        header("Location: http://localhost/onlinePizzaOrderingSystem/Nan_home_web/cart.php");
+        exit();
     
 ?>

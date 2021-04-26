@@ -84,10 +84,12 @@
             $query_offerapplied = "SELECT offer_id, total_price, final_price FROM orders WHERE Order_ID=$Order_ID";
             $result_offerapplied = mysqli_query($conn, $query_offerapplied);
             $row_offerapplied = mysqli_fetch_array($result_offerapplied);
-            if ($row_offerapplied['offer_id'] != 0) {
-                $a = $row_offerapplied['offer_id'];
-                $b = $row_offerapplied['total_price'];
-                $c = $row_offerapplied['final_price'];
+            $a = $row_offerapplied['offer_id'];
+            $b = $row_offerapplied['total_price'];
+            $c = $row_offerapplied['final_price'];
+            if ($row_offerapplied['offer_id'] == 0) {
+                echo '<tr><td><b>Final Price</b></td><td><b> ₹'.$c.'</b></td></tr>';
+            } else {
                 $query_offerapplied2 = "SELECT offer_desc FROM offer_table WHERE offer_id=$a";
                 $result_offerapplied2 = mysqli_query($conn, $query_offerapplied2);
                 $row_offerapplied2 = mysqli_fetch_array($result_offerapplied2);

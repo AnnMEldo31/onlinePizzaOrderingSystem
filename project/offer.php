@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once('..\Nan_home_web\login_reg\config.php');
+if (isset($_SESSION['cust_name'])) {
+  $cname = $_SESSION['cust_name'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +30,17 @@
             PIZZERIA
         </div>
         <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">BUILD IT</a></li>
-            <li><a href="#">OFFERS</a></li>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">MY ACCOUNT</a></li>
+            <li><a href="..\Nan_home_web\Homepage.php">HOME</a></li>
+            <li><a href="..\Nan_home_web\BuildIT_1.php">BUILD IT</a></li>
+            <li><a href="offer.php">OFFERS</a></li>
+            <li><a href="about_us.php">ABOUT US</a></li>
+            <?php 
+                if (isset($_SESSION['cust_name'])) {
+                    echo "<li><a href=\"..\Nan_home_web\accountpage.php\">".$_SESSION['cust_name']."'s ACCOUNT</a></li>";
+                } else {
+                    echo "<li><a href=\"../Nan_home_web/login_reg/registration.html\">REGISTER</a> <:) </style> <a href=\"../Nan_home_web/login.php\"> LOGIN</a></li>";
+                }
+            ?>
         </ul>
     </nav>
     <!--top nav end-->
@@ -36,14 +50,14 @@
             <th id="Offer_ID"></th>
             <th id="OffeR_Discount"></th>
             <th id="Offer_Desc"></th>
-            <th id="Day"></th>
+            <th id="Offer_Day"></th>
           </tr>
           <?php
           $conn = mysqli_connect("localhost","root","","dbms_project");
           if ($conn-> connect_error){
             die("connection failed:". $conn-> connect_error);
           }
-          $sql="select Offer_ID, Offer_Discount, Offer_Desc, Day from Offer_table ";
+          $sql="select Offer_ID, Offer_Discount, Offer_Desc, Offer_Day from Offer_table ";
           $result=$conn-> query($sql);
 
           if ($result-> num_rows > 0){
@@ -52,7 +66,7 @@
               <td>".$row["Offer_ID"]."</td>
               <td>".$row["Offer_Discount"]."</td>
               <td>".$row["Offer_Desc"]."</td>
-              <td>".$row["Day"]."</td>
+              <td>".$row["Offer_Day"]."</td>
                </tr>";
             }
             echo "</table>";
