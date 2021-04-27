@@ -120,7 +120,7 @@
         <?php
             if (isset($_SESSION['OrderID_exp'])) {
                 echo '<a href="BILLING.php" class="button">GO TO CHECKOUT</a>
-                <a href="#" class="button" onclick="document.getElementById("id01").style.display=\'block\'">APPLY DISCOUNT</a>
+                <a href="#" class="button" onclick="document.getElementById(\'id01\').style.display=\'block\'">APPLY DISCOUNT</a>
                 <a href="BuildIT_1.php" class="button">CONTINUE SHOPPING</a>';
             } else {
                 echo '<a href="BuildIT_1.php" class="button">ORDER NOW</a>';
@@ -158,7 +158,7 @@ mysqli_close($conn);
 ?>
 
         <!--footer start-->
-        <div class="social" style="position: fixed;bottom: 0px;">
+        <div class="social">
             <a href="#"><i class="fab fa-twitter" style="color: lightgrey; font-size: 30px;"></i>
             </a> &nbsp;
             <a href="#"><i class="fab fa-instagram" style="color: lightgrey; font-size: 30px;"></i>
