@@ -105,7 +105,7 @@ if (!isset($_SESSION['username'])) {
                                 <th id="off_disc"><strong>Discount</strong></th>
                             </tr>
                             <?php 
-                            $sql="select Offer_ID, Offer_Discount, Offer_Desc, Day from offer_table order by Offer_ID asc";
+                            $sql="select Offer_ID, Offer_Discount, Offer_Desc, Offer_Day from offer_table order by Offer_ID asc";
                             $result=mysqli_query($conn, $sql);
                             $num = mysqli_num_rows($result);
                             if ($num > 0) {
@@ -113,7 +113,7 @@ if (!isset($_SESSION['username'])) {
                                     echo "<tr>
                                         <td>".$row["Offer_ID"]."</td>
                                         <td>".$row["Offer_Desc"]."</td>
-                                        <td>".$row["Day"]."</td>
+                                        <td>".$row["Offer_Day"]."</td>
                                         <td>".$row["Offer_Discount"]."</td>
                                     </tr>";
                                 }

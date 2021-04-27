@@ -148,10 +148,10 @@ if(isset($_POST['adm_login'])) {
                     <div>
                         <h1>
                             <?php
-                            $query="SELECT * from offer_table";
+                            $query="SELECT todayoffers() as num";
                             $result=mysqli_query($conn, $query);
-                            
-                            echo mysqli_num_rows($result);
+                            $row=mysqli_fetch_assoc($result);
+                            echo $row['num'];
                             ?>
                         </h1> <!-- data offers -->
                         <span>Today's Offers</span>

@@ -28,19 +28,52 @@ require_once('config.php');
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="forms.css">
-    <title>Log in | Pizzeria Admins</title>
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="../website/style.css">
+    <style>
+		input {
+			margin: 5px;
+		}
+	</style>
+	<title>Log in | Pizzeria Admins</title>
 </head>
 <body>
-    <form action="..\website\index.php" method="post">
-	<div class="container">
-		<h1>Log in</h1>
-		
-		<input type="text" name="log_username" id="username" placeholder="Username" required>
-		<input type="password" name="log_pw" id="pw" placeholder="Password" required>
+	<input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img src="../website/img/logo_BW.png" alt="pizzeria logo in black and white">
+            <h2>PIZZERIA Admins</h2>
+        </div>
 
-		<input type="submit" name="adm_login" value="Log In">
+        <div class="sidebar-menu">
+			<ul>
+				<li style="color:white;">Please Log In<br> to view admin pages</li>
+			</ul>
+        </div>
+    </div>
+
+	<div class="main-content">
+		<header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label> <!-- toggle bar icon -->
+                
+                Log In
+            </h2> <!-- sidebar view toggle button, page title -->
+
+        </header> <!-- page title, sidebar view toggle button, search, current account -->
+
+		<main>
+			<form action="..\website\index.php" method="post">
+			<div class="container">
+				<input type="text" name="log_username" id="username" placeholder="Username" required> <br>
+				<input type="password" name="log_pw" id="pw" placeholder="Password" required> <br>
+
+				<input type="submit" name="adm_login" value="Log In">
+			</div>
+			</form>
+		</main>
 	</div>
-	</form>
 </body>
 </html>

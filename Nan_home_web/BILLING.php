@@ -17,16 +17,12 @@
     $querydata = mysqli_query($conn, $query1);
     $_SESSION['pizzanum'] = mysqli_num_rows($querydata);
 
-    $query2 = "SELECT COUNT(*) as total from Bill_Items where Order_ID = $Order_ID";
-    $query2data = mysqli_query($conn, $query2);
-    while($row = mysqli_fetch_array($query2data)){
-        $totalpizza = $row["total"];                   
-    }
-
-    $query3 = "SELECT SUM(B_Price) as Price from Bill_Items where Order_ID = $Order_ID";
+    $query3 = "SELECT Total_Price, Total_Orders, Final_Price from Orders where Order_ID = $Order_ID";
     $query3data = mysqli_query($conn, $query3);
     while($row = mysqli_fetch_array($query3data)){
-        $totalprice = $row["Price"];                   
+        $totalprice = $row["Total_Price"];
+        $finalprice = $row["Final_Price"];
+        $totalpizza = $row["Total_Orders"];
     }
 ?>
 
@@ -149,6 +145,16 @@
                     <p><b>Total</b> <span class="price" style="color: black;"><b>
                     <?php
                             echo "₹".$totalprice;
+                       ?>
+                    </b></span></p>
+                    <p><b>Discount</b> <span class="price" style="color: black;"><b>
+                    <?php
+                            echo "– ₹".$totalprice - $finalprice;
+                       ?>
+                    </b></span></p>
+                    <p><b>Final</b> <span class="price" style="color: black;"><b>
+                    <?php
+                            echo "₹".$finalprice;
                        ?>
                     </b></span></p>
                 </div>

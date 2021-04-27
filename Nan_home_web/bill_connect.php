@@ -19,22 +19,21 @@
         $O_Mail = $_POST['b_mail'];
         $Contact_No = $_POST['b_ph_no'];
         $Pay = $_POST['pay'];
-        $price = $_SESSION['Tot_Price'];
         $Order_ID = $_SESSION['OrderID_exp'];
         // $num_pizzas = $_SESSION['pizzanum'];
 
         $query1 = "UPDATE orders SET O_Date_Time = CURRENT_TIMESTAMP, 
         O_House_No = '$O_House_No', 
-        O_Street_No = '$O_Street_No', 
-        O_Pin_Code = '$O_Pin_Code', 
+        O_Street_No = $O_Street_No, 
+        O_Pin_Code = $O_Pin_Code, 
         O_Mail = '$O_Mail', 
-        Contact_No = '$Contact_No', 
-        Pay = '$Pay', 
-        Total_Price = '$price' 
-        where Order_ID = $Order_ID";
+        Contact_No = $Contact_No, 
+        Pay = '$Pay'
+        where Order_id = $Order_ID";
         
         if(mysqli_query($conn, $query1)){
             echo "successful checkout";
+            unset($_SESSION['OrderID_exp']);
         }
         else{
             echo "Error: " . $query1 . "" . mysqli_error($conn);

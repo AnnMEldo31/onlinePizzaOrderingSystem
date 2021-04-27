@@ -16,11 +16,11 @@ for ($i=0; $i<7; $i++) {
     $conn->query("SET @date = '$datevar'");
     
     $conn->query("CALL `daily_revenue`(@d_rev, @date);");
-    $resultrev = $conn->query("SELECT @d_rev as drev, @date as d");
+    $resultrev = $conn->query("SELECT ifnull(@d_rev, 0) as drev, @date as d");
     $revData[] = $resultrev->fetch_assoc();
 
     $conn->query("CALL `daily_orders`(@d_ord, @date);");
-    $resultord = $conn->query("SELECT @d_ord as dord, @date as d");
+    $resultord = $conn->query("SELECT ifnull(@d_ord, 0) as dord, @date as d");
     $ordData[] = $resultord->fetch_assoc();
 
     date_add($date,date_interval_create_from_date_string("-1 day"));
