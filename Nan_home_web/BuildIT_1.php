@@ -67,7 +67,7 @@ if (!isset($_SESSION['cust_name'])) {
                         <img src="pizza_pics/thincrust.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Thin Crust</h5>
-                            <p class="price">₹99</p>
+                            <p class="price">₹50</p>
                         </div>
                         <p>
                             <div class ="radio">
@@ -81,7 +81,7 @@ if (!isset($_SESSION['cust_name'])) {
                         <img src="pizza_pics/stuffed.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Stuffed Crust</h5>
-                            <p class="price">₹99</p>
+                            <p class="price">₹50</p>
                         </div>
                             <p>
                                 <div class ="radio">
@@ -95,7 +95,7 @@ if (!isset($_SESSION['cust_name'])) {
                         <img src="pizza_pics/vegan.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Vegan Crust</h5>
-                            <p class="price">₹99</p>
+                            <p class="price">₹60</p>
                         </div>
                         <p>
                             <div class ="radio">
@@ -109,7 +109,7 @@ if (!isset($_SESSION['cust_name'])) {
                         <img src="pizza_pics/thick.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Thick Crust</h5>
-                            <p class="price">₹99</p>
+                            <p class="price">₹55</p>
                         </div>
                         <p>
                             <div class ="radio">
@@ -123,7 +123,7 @@ if (!isset($_SESSION['cust_name'])) {
                         <img src="pizza_pics/pan.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Pan Crust</h5>
-                            <p class="price">₹99</p>
+                            <p class="price">₹55</p>
                         </div>
                         <p>
                             <div class ="radio">
@@ -137,7 +137,7 @@ if (!isset($_SESSION['cust_name'])) {
                         <img src="pizza_pics/neapoletan.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Neapoletan</h5>
-                            <p class="price">₹99</p>
+                            <p class="price">₹45</p>
                         </div>
                         <p>
                             <div class ="radio">
@@ -151,7 +151,7 @@ if (!isset($_SESSION['cust_name'])) {
                         <img src="pizza_pics/sicilian.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Sicilian Crust</h5>
-                            <p class="price">₹99</p>
+                            <p class="price">₹45</p>
                         </div>
                         <p>
                             <div class ="radio">
@@ -165,7 +165,7 @@ if (!isset($_SESSION['cust_name'])) {
                         <img src="pizza_pics/focaccia.jpg" style="width:100%;">
                         <div class="cardtxt">
                             <h5>Focaccia Crust</h5>
-                            <p class="price">₹99</p>
+                            <p class="price">₹50</p>
                         </div>
                         <p>
                             <div class ="radio">
