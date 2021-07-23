@@ -59,7 +59,7 @@ if(isset($_POST['cust_login'])) {
                 }
                 ?></li>
                 <li><a href="..\project\offer.php">OFFERS</a></li>
-                <li><a href="..\project\about_us.html">ABOUT US</a></li> 
+                <li><a href="http://localhost/onlinePizzaOrderingSystem/project/about_us.php">ABOUT US</a></li> 
                 <?php 
                 if (isset($_SESSION['cust_name'])) {
                     echo "<li><a href=\"accountpage.php\">".$_SESSION['cust_name']."'s ACCOUNT</a></li>";
